@@ -813,7 +813,8 @@
             <!-- Fg GlassPro -->
             <li class="project-item active" data-filter-item data-category="applications">
               <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                <div class="project-new-badge">New</div>
+                <div class="project-item-icon-box" data-app-detail="fg-glasspro"><ion-icon name="eye-outline"></ion-icon></div>
                 <img src="./assets/images/project-11.png" alt="Fg GlassPro" loading="lazy">
               </figure>
               <div class="project-content">
@@ -838,7 +839,7 @@
             <!-- Future Tracker -->
             <li class="project-item active" data-filter-item data-category="applications">
               <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                <div class="project-item-icon-box" data-app-detail="future-tracker"><ion-icon name="eye-outline"></ion-icon></div>
                 <img src="./assets/images/project-12.jpeg" alt="Future Tracker" loading="lazy">
               </figure>
               <div class="project-content">
@@ -904,7 +905,7 @@
             <!-- Convex -->
             <li class="project-item active" data-filter-item data-category="applications">
               <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                <div class="project-item-icon-box" data-app-detail="convex"><ion-icon name="eye-outline"></ion-icon></div>
                 <img src="./assets/images/project-10.png" alt="Convex" loading="lazy">
               </figure>
               <div class="project-content">
@@ -967,7 +968,7 @@
             <!-- Task Manager -->
             <li class="project-item active" data-filter-item data-category="applications">
               <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
+                <div class="project-item-icon-box" data-app-detail="task-manager"><ion-icon name="eye-outline"></ion-icon></div>
                 <img src="./assets/images/project-8.jpg" alt="Task Manager" loading="lazy">
               </figure>
               <div class="project-content">
@@ -1025,6 +1026,147 @@
 
           </ul>
         </section>
+        
+        <!-- App Detail Modal -->
+        <div class="app-detail-modal" data-app-modal>
+          <div class="app-detail-overlay" data-app-overlay></div>
+          
+          <div class="app-detail-content">
+            <!-- Close Button -->
+            <button class="app-detail-close" data-app-close>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+            
+            <!-- Hero Section -->
+            <section class="app-hero">
+              <div class="app-hero-content">
+                <div class="app-icon">
+                  <img src="" alt="" data-app-icon>
+                </div>
+                <div class="app-hero-text">
+                  <h2 class="app-title" data-app-title></h2>
+                  <p class="app-tagline" data-app-tagline></p>
+                  <div class="app-cta-buttons">
+                    <a href="#" class="app-cta playstore" data-app-playstore>
+                      <img src="./assets/icons/playstore.png" alt="Play Store">
+                      <span>Play Store</span>
+                    </a>
+                    <a href="#" class="app-cta appstore" data-app-appstore>
+                      <img src="./assets/icons/appstore.png" alt="App Store">
+                      <span>App Store</span>
+                    </a>
+                    <a href="#" class="app-cta prototype" data-app-prototype>
+                      <img src="./assets/icons/origami.png" alt="Prototype">
+                      <span>Prototype</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+            
+            <!-- App Overview -->
+            <section class="app-overview">
+              <div class="app-overview-content">
+                <div class="app-description">
+                  <h3>About this app</h3>
+                  <p data-app-description></p>
+                </div>
+                <div class="app-stats">
+                  <div class="app-stat-item">
+                    <span class="stat-number" data-app-downloads>50K+</span>
+                    <span class="stat-label">Downloads</span>
+                  </div>
+                  <div class="app-stat-item">
+                    <span class="stat-number" data-app-rating>4.5</span>
+                    <span class="stat-label">Rating</span>
+                  </div>
+                  <div class="app-stat-item">
+                    <span class="stat-number" data-app-release>2024</span>
+                    <span class="stat-label">Released</span>
+                  </div>
+                </div>
+              </div>
+              <div class="app-tech-stack">
+                <h4>Tech Stack</h4>
+                <div class="tech-tags" data-app-tech>
+                  <!-- Tech tags will be dynamically added -->
+                </div>
+              </div>
+            </section>
+            
+            <!-- Screenshot Gallery -->
+            <section class="app-gallery">
+              <h3>Screenshots</h3>
+              <div class="gallery-container">
+                <div class="gallery-main">
+                  <img src="" alt="" class="gallery-main-img" data-gallery-main>
+                </div>
+                <div class="gallery-thumbnails" data-gallery-thumbnails>
+                  <!-- Thumbnails will be dynamically added -->
+                </div>
+              </div>
+            </section>
+            
+            <!-- Feature Highlights -->
+            <section class="app-features">
+              <h3>Key Features</h3>
+              <div class="features-grid" data-app-features>
+                <!-- Features will be dynamically added -->
+              </div>
+            </section>
+            
+            <!-- Development Story -->
+            <section class="app-story">
+              <h3>Development Story</h3>
+              <div class="story-content">
+                <div class="story-item">
+                  <h4><ion-icon name="bulb-outline"></ion-icon> Problem</h4>
+                  <p data-app-problem></p>
+                </div>
+                <div class="story-item">
+                  <h4><ion-icon name="rocket-outline"></ion-icon> Solution</h4>
+                  <p data-app-solution></p>
+                </div>
+                <div class="story-item">
+                  <h4><ion-icon name="construct-outline"></ion-icon> Challenges & Learnings</h4>
+                  <p data-app-challenges></p>
+                </div>
+                <div class="story-item">
+                  <h4><ion-icon name="person-outline"></ion-icon> My Role</h4>
+                  <p data-app-role></p>
+                </div>
+              </div>
+            </section>
+            
+            <!-- User Reviews (Optional) -->
+            <section class="app-reviews" data-app-reviews-section>
+              <h3>User Reviews</h3>
+              <div class="reviews-container" data-app-reviews>
+                <!-- Reviews will be dynamically added -->
+              </div>
+            </section>
+            
+            <!-- Final CTA -->
+            <section class="app-final-cta">
+              <h3>Download & Explore</h3>
+              <div class="final-cta-buttons">
+                <a href="#" class="app-cta playstore large" data-app-playstore-final>
+                  <img src="./assets/icons/playstore.png" alt="Play Store">
+                  <span>Download from Play Store</span>
+                </a>
+                <a href="#" class="app-cta appstore large" data-app-appstore-final>
+                  <img src="./assets/icons/appstore.png" alt="App Store">
+                  <span>Download from App Store</span>
+                </a>
+                <a href="#" class="app-cta prototype large" data-app-prototype-final>
+                  <img src="./assets/icons/origami.png" alt="Prototype">
+                  <span>Try Interactive Demo</span>
+                </a>
+              </div>
+            </section>
+          </div>
+        </div>
+        
       </article>
 
 
