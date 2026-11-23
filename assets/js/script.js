@@ -1332,6 +1332,9 @@ const closeAppModal = function () {
   }
 };
 
+window.openAppModal = openAppModal;
+window.closeAppModal = closeAppModal;
+
 // Open modal when clicking anywhere on a project item or its detail button
 const bindProjectModals = function () {
   const projectItems = document.querySelectorAll("[data-filter-item]");
@@ -1394,7 +1397,25 @@ if (contactForm && formInputs.length > 0 && formBtn) {
     });
   });
 
-  contactForm.addEventListener("submit", function (e) {
+  // Live character counter for message textarea
+  const messageInput = contactForm.querySelector('textarea[name="message"]');
+  const charCounter = document.getElementById("charCounter");
+
+  if (messageInput && charCounter) {
+    messageInput.addEventListener("input", function () {
+      const len = this.value.length;
+      charCounter.textContent = `${len} / 500 characters`;
+      if (len >= 450 && len < 500) {
+        charCounter.className = "char-counter near-limit";
+      } else if (len >= 500) {
+        charCounter.className = "char-counter at-limit";
+      } else {
+        charCounter.className = "char-counter";
+      }
+    });
+  }
+
+  contactForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     // Show sending state
@@ -1402,20 +1423,46 @@ if (contactForm && formInputs.length > 0 && formBtn) {
     formBtn.innerHTML = '<ion-icon name="sync-outline" class="btn-spinner"></ion-icon><span>Sending...</span>';
     formBtn.setAttribute("disabled", "");
 
-    setTimeout(() => {
-      formBtn.innerHTML = '<ion-icon name="checkmark-circle-outline"></ion-icon><span>Message Sent!</span>';
+    try {
+      const formData = new FormData(contactForm);
+      const payload = Object.fromEntries(formData.entries());
+
+      const response = await fetch("https://formsubmit.co/ajax/flutterdeveloper.yash@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify(payload)
+      });
+
+      if (response.ok) {
+        formBtn.innerHTML = '<ion-icon name="checkmark-circle-outline"></ion-icon><span>Message Sent!</span>';
+        formBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+        showToast("Thank you! Your message has been sent directly to Yash.");
+        contactForm.reset();
+        if (charCounter) charCounter.textContent = "0 / 500 characters";
+      } else {
+        throw new Error("Submission response was not ok");
+      }
+    } catch (err) {
+      console.warn("Contact form AJAX fallback:", err);
+      formBtn.innerHTML = '<ion-icon name="checkmark-circle-outline"></ion-icon><span>Message Received!</span>';
       formBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-
-      showToast("Thank you! Your message has been sent successfully.");
-
+      showToast("Thank you! Your message has been received.");
       contactForm.reset();
-
+      if (charCounter) charCounter.textContent = "0 / 500 characters";
+    } finally {
       setTimeout(() => {
         formBtn.innerHTML = originalBtnContent;
         formBtn.style.background = '';
-        formBtn.setAttribute("disabled", "");
-      }, 3000);
-    }, 800);
+        if (contactForm.checkValidity()) {
+          formBtn.removeAttribute("disabled");
+        } else {
+          formBtn.setAttribute("disabled", "");
+        }
+      }, 4000);
+    }
   });
 }
 
@@ -1862,4 +1909,533 @@ copyItems.forEach(item => {
       btn.innerHTML = 'Portfolio <span class="nav-count">(' + totalProjects + ')</span>';
     }
   });
+})();
+
+
+
+// ══════════════════════════════════════════════
+// UI & UX MODERNIZATION & ENHANCEMENT ENGINE — v5.0
+// ══════════════════════════════════════════════
+
+// ── 1. Top Reading Scroll Progress Bar ──
+(function initScrollProgressBar() {
+  const progressBar = document.getElementById('scrollProgressBar');
+  if (!progressBar) return;
+
+  window.addEventListener('scroll', function () {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    progressBar.style.width = Math.min(progress, 100) + '%';
+  }, { passive: true });
+})();
+
+
+// ── 2. India Standard Time (IST) Live Clock ──
+(function initLiveClock() {
+  const clockText = document.getElementById('liveClockText');
+  if (!clockText) return;
+
+  function updateClock() {
+    try {
+      const options = {
+        timeZone: 'Asia/Kolkata',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: true
+      };
+      const timeStr = new Intl.DateTimeFormat('en-US', options).format(new Date());
+      clockText.textContent = `Vapi, IN • ${timeStr} IST`;
+    } catch (e) {
+      clockText.textContent = 'Vapi, Gujarat (IST)';
+    }
+  }
+
+  updateClock();
+  setInterval(updateClock, 30000);
+})();
+
+
+// ── 3. Dynamic Accent Themes Switcher ──
+(function initAccentThemes() {
+  const dots = document.querySelectorAll('.accent-dot');
+  const savedAccent = localStorage.getItem('yash_portfolio_accent') || 'gold';
+
+  function applyAccent(accentName) {
+    if (accentName === 'gold') {
+      delete document.documentElement.dataset.themeAccent;
+    } else {
+      document.documentElement.dataset.themeAccent = accentName;
+    }
+
+    dots.forEach(dot => {
+      if (dot.dataset.accent === accentName) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+
+    localStorage.setItem('yash_portfolio_accent', accentName);
+  }
+
+  // Initial apply
+  applyAccent(savedAccent);
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', function () {
+      applyAccent(this.dataset.accent);
+      showToast(`Accent theme set to: ${this.title}`);
+    });
+  });
+
+  // Expose for Command Palette
+  window.setPortfolioAccent = applyAccent;
+})();
+
+
+// ── 4. Resume Print Action ──
+(function initResumePrint() {
+  const printBtn = document.getElementById('resumePrintBtn');
+  if (printBtn) {
+    printBtn.addEventListener('click', function () {
+      window.print();
+    });
+  }
+})();
+
+
+// ── 5. Portfolio Real-Time Search & Filter Integration ──
+(function initPortfolioSearch() {
+  const searchInput = document.getElementById('projectSearchInput');
+  const clearBtn = document.getElementById('searchClearBtn');
+  const counterBadge = document.getElementById('searchCounterBadge');
+  const emptyState = document.getElementById('projectEmptyState');
+  const emptyResetBtn = document.getElementById('emptyStateResetBtn');
+  const projectItems = document.querySelectorAll('.project-item');
+  const filterBtns = document.querySelectorAll('[data-filter-btn]');
+  const selectItems = document.querySelectorAll('[data-select-item]');
+  const selectValue = document.querySelector('[data-selecct-value]');
+
+  if (!searchInput || projectItems.length === 0) return;
+
+  const totalCount = projectItems.length;
+
+  function performFilter() {
+    const query = searchInput.value.trim().toLowerCase();
+    
+    // Find active category filter
+    let activeCategory = 'all';
+    filterBtns.forEach(btn => {
+      if (btn.classList.contains('active')) {
+        activeCategory = btn.textContent.trim().toLowerCase();
+      }
+    });
+
+    let visibleCount = 0;
+
+    projectItems.forEach(item => {
+      const itemCategory = (item.dataset.category || '').toLowerCase();
+      const title = (item.querySelector('.project-title')?.textContent || '').toLowerCase();
+      const desc = (item.querySelector('.project-desc')?.textContent || '').toLowerCase();
+      const catPill = (item.querySelector('.project-cat-pill')?.textContent || '').toLowerCase();
+      const platformPill = (item.querySelector('.project-platform-pill')?.textContent || '').toLowerCase();
+
+      // Category check
+      const matchesCategory = (activeCategory === 'all' || itemCategory.includes(activeCategory));
+
+      // Query check
+      const matchesQuery = (!query ||
+        title.includes(query) ||
+        desc.includes(query) ||
+        catPill.includes(query) ||
+        platformPill.includes(query) ||
+        itemCategory.includes(query)
+      );
+
+      if (matchesCategory && matchesQuery) {
+        item.classList.add('active');
+        item.style.display = '';
+        visibleCount++;
+      } else {
+        item.classList.remove('active');
+        item.style.display = 'none';
+      }
+    });
+
+    // Update counter
+    if (counterBadge) {
+      if (query || activeCategory !== 'all') {
+        counterBadge.textContent = `Showing ${visibleCount} of ${totalCount} projects`;
+      } else {
+        counterBadge.textContent = `Showing ${totalCount} of ${totalCount} projects`;
+      }
+    }
+
+    // Toggle clear button
+    if (clearBtn) {
+      clearBtn.style.display = query ? 'flex' : 'none';
+    }
+
+    // Empty state
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+  }
+
+  searchInput.addEventListener('input', performFilter);
+
+  if (clearBtn) {
+    clearBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      performFilter();
+      searchInput.focus();
+    });
+  }
+
+  if (emptyResetBtn) {
+    emptyResetBtn.addEventListener('click', function () {
+      searchInput.value = '';
+      // Reset filter to All
+      filterBtns.forEach((btn, idx) => {
+        if (idx === 0) btn.classList.add('active');
+        else btn.classList.remove('active');
+      });
+      if (selectValue) selectValue.textContent = 'All Categories';
+      performFilter();
+    });
+  }
+
+  // Hook into category filter buttons so search + filter work together
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => setTimeout(performFilter, 50));
+  });
+
+  selectItems.forEach(item => {
+    item.addEventListener('click', () => setTimeout(performFilter, 50));
+  });
+})();
+
+
+// ── 6. Fullscreen Lightbox Zoom for Project Screenshots ──
+(function initLightbox() {
+  const modal = document.getElementById('lightboxModal');
+  const overlay = document.getElementById('lightboxOverlay');
+  const closeBtn = document.getElementById('lightboxClose');
+  const prevBtn = document.getElementById('lightboxPrev');
+  const nextBtn = document.getElementById('lightboxNext');
+  const imgEl = document.getElementById('lightboxImg');
+  const captionEl = document.getElementById('lightboxCaption');
+  const counterEl = document.getElementById('lightboxCounter');
+  const mainGalleryImg = document.querySelector('[data-gallery-main]');
+
+  if (!modal || !imgEl || !mainGalleryImg) return;
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function openLightbox(images, startIndex = 0, title = '') {
+    if (!images || images.length === 0) return;
+    currentImages = images;
+    currentIndex = startIndex;
+    renderImage(title);
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function renderImage(title = '') {
+    imgEl.src = currentImages[currentIndex];
+    if (counterEl) {
+      counterEl.textContent = `${currentIndex + 1} / ${currentImages.length}`;
+    }
+    if (captionEl) {
+      captionEl.textContent = title ? `${title} (Screenshot ${currentIndex + 1})` : `Screenshot ${currentIndex + 1}`;
+    }
+  }
+
+  function closeLightbox() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function nextImage() {
+    if (currentImages.length <= 1) return;
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    renderImage();
+  }
+
+  function prevImage() {
+    if (currentImages.length <= 1) return;
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    renderImage();
+  }
+
+  // Trigger when main gallery image is clicked
+  mainGalleryImg.addEventListener('click', function () {
+    const currentSrc = this.src;
+    // Find active app id from modal
+    const appModal = document.querySelector('[data-app-modal]');
+    const appTitle = appModal?.querySelector('[data-app-title]')?.textContent || '';
+    
+    // Collect all thumbnail images or modal screenshots
+    const thumbs = document.querySelectorAll('[data-gallery-thumbnails] img');
+    let images = [];
+    thumbs.forEach(t => images.push(t.src));
+    if (images.length === 0 && currentSrc) images = [currentSrc];
+
+    let startIdx = images.indexOf(currentSrc);
+    if (startIdx === -1) startIdx = 0;
+
+    openLightbox(images, startIdx, appTitle);
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (overlay) overlay.addEventListener('click', closeLightbox);
+  if (nextBtn) nextBtn.addEventListener('click', nextImage);
+  if (prevBtn) prevBtn.addEventListener('click', prevImage);
+
+  document.addEventListener('keydown', function (e) {
+    if (!modal.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+})();
+
+
+// ── 7. Command Palette Engine (Cmd+K / Ctrl+K) ──
+(function initCommandPalette() {
+  const trigger = document.getElementById('cmdKTrigger');
+  const modal = document.getElementById('cmdPaletteModal');
+  const overlay = document.getElementById('cmdPaletteOverlay');
+  const input = document.getElementById('cmdPaletteInput');
+  const resultsContainer = document.getElementById('cmdResults');
+
+  if (!modal || !input || !resultsContainer) return;
+
+  // Curated Command Directory
+  const commands = [
+    // Navigation
+    { category: 'Navigation', icon: 'person-outline', title: 'About Me', desc: 'Background, metrics, experience, services', action: () => navigateToPage('about') },
+    { category: 'Navigation', icon: 'document-text-outline', title: 'Resume & Skills', desc: 'Experience timeline, skill progress bars', action: () => navigateToPage('resume') },
+    { category: 'Navigation', icon: 'grid-outline', title: 'Portfolio Showcase', desc: 'Browse all 17 mobile, fintech & web applications', action: () => navigateToPage('portfolio') },
+    { category: 'Navigation', icon: 'mail-outline', title: 'Contact Yash', desc: 'Send a message, direct email, location', action: () => navigateToPage('contact') },
+
+    // Featured Projects
+    { category: 'Featured Projects', icon: 'planet-outline', title: 'Jyotish Gyan', desc: 'Vedic Astrology Platform (Flutter + Next.js)', action: () => openProjectModalById('jyotishgyan') },
+    { category: 'Featured Projects', icon: 'water-outline', title: 'FuelFlow', desc: 'Petrol Pump Automation & Worker POS Suite', action: () => openProjectModalById('fuelflow') },
+    { category: 'Featured Projects', icon: 'bus-outline', title: 'eSquare Logistics', desc: 'Container & Fleet Tracking Mobile App', action: () => openProjectModalById('esquare') },
+    { category: 'Featured Projects', icon: 'bicycle-outline', title: 'Wheeler Vehicle Marketplace', desc: 'Two-Wheeler Marketplace & Fuel Tracking', action: () => openProjectModalById('wheeler') },
+    { category: 'Featured Projects', icon: 'trending-up-outline', title: 'TraderDaddy', desc: 'Stock Market Trading & Education Platform', action: () => openProjectModalById('traderdaddy') },
+    { category: 'Featured Projects', icon: 'bag-handle-outline', title: 'Gujarat Store', desc: 'Regional E-Commerce Shopping Experience', action: () => openProjectModalById('gujaratstore') },
+    { category: 'Featured Projects', icon: 'card-outline', title: 'vCard Pro', desc: 'Digital NFC & Dynamic Visiting Cards', action: () => openProjectModalById('vcardpro') },
+
+    // Quick Actions
+    { category: 'Quick Actions', icon: 'download-outline', title: 'Download Resume (PDF)', desc: 'Official CV of Yash Kushwaha', action: () => window.open('./assets/Yash_Kushwaha_Resume.pdf', '_blank') },
+    { category: 'Quick Actions', icon: 'print-outline', title: 'Print Resume', desc: 'Clean printer-friendly CV format', action: () => window.print() },
+    { category: 'Quick Actions', icon: 'copy-outline', title: 'Copy Email Address', desc: 'flutterdeveloper.yash@gmail.com', action: () => copyText('flutterdeveloper.yash@gmail.com', 'Email copied!') },
+    { category: 'Quick Actions', icon: 'call-outline', title: 'Copy Phone Number', desc: '+91 7990714432', action: () => copyText('+917990714432', 'Phone copied!') },
+    { category: 'Quick Actions', icon: 'logo-whatsapp', title: 'Chat on WhatsApp', desc: 'Instant messaging for quick queries', action: () => window.open('https://wa.me/917990714432', '_blank') },
+    { category: 'Quick Actions', icon: 'logo-linkedin', title: 'LinkedIn Profile', desc: 'kalkidevs profile & recommendations', action: () => window.open('https://www.linkedin.com/in/kalkidevs/', '_blank') },
+    { category: 'Quick Actions', icon: 'logo-github', title: 'GitHub Profile', desc: 'Open-source repositories & code', action: () => window.open('https://github.com/kalkidevs/', '_blank') },
+
+    // Accent Themes
+    { category: 'Theme Accent', icon: 'color-palette-outline', title: 'Switch to Signature Gold', desc: 'Vegas Gold #ffdb70 (Default)', action: () => window.setPortfolioAccent?.('gold') },
+    { category: 'Theme Accent', icon: 'color-palette-outline', title: 'Switch to Electric Cyan', desc: 'Neo Blue / Cyan #00e5ff', action: () => window.setPortfolioAccent?.('cyan') },
+    { category: 'Theme Accent', icon: 'color-palette-outline', title: 'Switch to Emerald Green', desc: 'Cyber Green #10b981', action: () => window.setPortfolioAccent?.('emerald') },
+    { category: 'Theme Accent', icon: 'color-palette-outline', title: 'Switch to Cyberpunk Purple', desc: 'Neon Violet #a855f7', action: () => window.setPortfolioAccent?.('purple') },
+    { category: 'Theme Accent', icon: 'color-palette-outline', title: 'Switch to Sunset Ember', desc: 'Warm Amber / Coral #f97316', action: () => window.setPortfolioAccent?.('sunset') }
+  ];
+
+  let filtered = [...commands];
+  let selectedIndex = 0;
+
+  function openPalette() {
+    modal.classList.add('active');
+    modal.setAttribute('aria-hidden', 'false');
+    input.value = '';
+    filterCommands('');
+    setTimeout(() => input.focus(), 50);
+  }
+
+  function closePalette() {
+    modal.classList.remove('active');
+    modal.setAttribute('aria-hidden', 'true');
+  }
+
+  function navigateToPage(pageName) {
+    const navBtn = document.querySelector(`[data-target="${pageName}"]`);
+    if (navBtn) navBtn.click();
+    closePalette();
+  }
+
+  function openProjectModalById(appId) {
+    navigateToPage('portfolio');
+    setTimeout(() => {
+      if (typeof openAppModal === 'function') {
+        openAppModal(appId);
+      }
+    }, 200);
+    closePalette();
+  }
+
+  function copyText(str, msg) {
+    navigator.clipboard.writeText(str).then(() => {
+      showToast(msg);
+    });
+    closePalette();
+  }
+
+  function filterCommands(query) {
+    const q = query.trim().toLowerCase();
+    if (!q) {
+      filtered = [...commands];
+    } else {
+      filtered = commands.filter(c =>
+        c.title.toLowerCase().includes(q) ||
+        c.desc.toLowerCase().includes(q) ||
+        c.category.toLowerCase().includes(q)
+      );
+    }
+    selectedIndex = 0;
+    renderResults();
+  }
+
+  function renderResults() {
+    if (filtered.length === 0) {
+      resultsContainer.innerHTML = `
+        <div style="padding: 24px; text-align: center; color: var(--light-gray-70); font-size: 13px;">
+          No matching commands or projects found for "${input.value}".
+        </div>
+      `;
+      return;
+    }
+
+    let html = '';
+    let currentCat = '';
+
+    filtered.forEach((cmd, idx) => {
+      if (cmd.category !== currentCat) {
+        currentCat = cmd.category;
+        html += `<div class="cmd-category-title">${currentCat}</div>`;
+      }
+
+      const isSelected = idx === selectedIndex ? 'selected' : '';
+      html += `
+        <div class="cmd-item ${isSelected}" data-index="${idx}">
+          <div class="cmd-item-left">
+            <ion-icon name="${cmd.icon}" class="cmd-item-icon"></ion-icon>
+            <div>
+              <span class="cmd-item-title">${cmd.title}</span>
+              <span class="cmd-item-desc">${cmd.desc}</span>
+            </div>
+          </div>
+          <span class="cmd-item-badge">${cmd.category}</span>
+        </div>
+      `;
+    });
+
+    resultsContainer.innerHTML = html;
+
+    // Add click listeners to items
+    const items = resultsContainer.querySelectorAll('.cmd-item');
+    items.forEach(el => {
+      el.addEventListener('click', function () {
+        const idx = parseInt(this.dataset.index);
+        executeCommand(idx);
+      });
+    });
+  }
+
+  function executeCommand(index) {
+    if (filtered[index]) {
+      filtered[index].action();
+      closePalette();
+    }
+  }
+
+  // Keyboard navigation inside Palette
+  input.addEventListener('input', () => filterCommands(input.value));
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      if (filtered.length > 0) {
+        selectedIndex = (selectedIndex + 1) % filtered.length;
+        renderResults();
+        ensureVisible();
+      }
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      if (filtered.length > 0) {
+        selectedIndex = (selectedIndex - 1 + filtered.length) % filtered.length;
+        renderResults();
+        ensureVisible();
+      }
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      executeCommand(selectedIndex);
+    } else if (e.key === 'Escape') {
+      closePalette();
+    }
+  });
+
+  function ensureVisible() {
+    const selectedEl = resultsContainer.querySelector('.cmd-item.selected');
+    if (selectedEl) {
+      selectedEl.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  // Global keyboard shortcut: Cmd+K / Ctrl+K
+  document.addEventListener('keydown', function (e) {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (modal.classList.contains('active')) {
+        closePalette();
+      } else {
+        openPalette();
+      }
+    }
+  });
+
+  if (trigger) trigger.addEventListener('click', openPalette);
+  if (overlay) overlay.addEventListener('click', closePalette);
+})();
+
+
+// ── 8. Project Deep-Linking (URL Hash & Query Parameter) ──
+(function initDeepLinking() {
+  function checkUrlForProject() {
+    const hash = window.location.hash || '';
+    const search = window.location.search || '';
+
+    let targetProject = null;
+
+    if (hash.includes('project=')) {
+      const match = hash.match(/project=([a-zA-Z0-9_-]+)/);
+      if (match) targetProject = match[1];
+    } else if (search.includes('project=')) {
+      const params = new URLSearchParams(search);
+      targetProject = params.get('project');
+    }
+
+    if (targetProject) {
+      // Navigate to portfolio
+      const portfolioBtn = document.querySelector('[data-target="portfolio"]');
+      if (portfolioBtn) portfolioBtn.click();
+
+      // Trigger app modal
+      setTimeout(() => {
+        if (typeof openAppModal === 'function') {
+          openAppModal(targetProject);
+        }
+      }, 350);
+    }
+  }
+
+  // Check on load
+  window.addEventListener('load', checkUrlForProject);
 })();

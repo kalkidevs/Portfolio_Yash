@@ -43,7 +43,7 @@
   </script>
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css?v=4.0">
+  <link rel="stylesheet" href="./assets/css/style.css?v=5.0">
 
   <!-- Google Fonts (Poppins only — Inter removed, unused) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,6 +52,9 @@
 </head>
 
 <body>
+
+  <!-- Top Reading Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
   <!-- #MAIN -->
   <main>
@@ -75,6 +78,10 @@
           <div class="status-pill">
             <span class="status-dot"></span>
             <span class="status-text">Available for Projects</span>
+          </div>
+          <div class="live-clock-badge" id="liveClockBadge" title="Current Local Time in Vapi, Gujarat (IST)">
+            <ion-icon name="time-outline"></ion-icon>
+            <span id="liveClockText">Vapi, IN &bull; --:-- IST</span>
           </div>
         </div>
 
@@ -169,6 +176,24 @@
 
     <!-- #MAIN-CONTENT -->
     <div class="main-content">
+
+      <!-- Top Action Bar (Cmd+K & Theme Switcher) -->
+      <div class="top-action-bar">
+        <button class="cmd-k-trigger" id="cmdKTrigger" title="Search & Quick Actions (Press ⌘K or Ctrl+K)" aria-label="Open Command Palette">
+          <ion-icon name="search-outline"></ion-icon>
+          <span class="cmd-k-text">Search projects & commands...</span>
+          <kbd class="cmd-k-badge">⌘K</kbd>
+        </button>
+
+        <div class="theme-accent-switcher" id="themeAccentSwitcher" title="Switch Accent Theme">
+          <span class="accent-label">Theme:</span>
+          <button class="accent-dot active" data-accent="gold" title="Signature Gold" aria-label="Gold theme" style="--dot-color: hsl(45, 100%, 71%);"></button>
+          <button class="accent-dot" data-accent="cyan" title="Electric Cyan" aria-label="Cyan theme" style="--dot-color: hsl(190, 100%, 50%);"></button>
+          <button class="accent-dot" data-accent="emerald" title="Emerald Green" aria-label="Green theme" style="--dot-color: hsl(150, 90%, 45%);"></button>
+          <button class="accent-dot" data-accent="purple" title="Cyberpunk Purple" aria-label="Purple theme" style="--dot-color: hsl(270, 95%, 65%);"></button>
+          <button class="accent-dot" data-accent="sunset" title="Sunset Ember" aria-label="Sunset theme" style="--dot-color: hsl(15, 100%, 60%);"></button>
+        </div>
+      </div>
 
       <!-- #NAVBAR -->
       <nav class="navbar">
@@ -491,6 +516,18 @@
           <h2 class="h2 article-title">Resume</h2>
         </header>
 
+        <!-- Resume Quick Actions -->
+        <div class="resume-quick-actions">
+          <a href="./assets/Yash_Kushwaha_Resume.pdf" target="_blank" class="resume-action-btn primary" title="Download Official CV (PDF)">
+            <ion-icon name="download-outline"></ion-icon>
+            <span>Download Official CV (PDF)</span>
+          </a>
+          <button class="resume-action-btn secondary" id="resumePrintBtn" title="Print a clean printer-friendly version of this resume">
+            <ion-icon name="print-outline"></ion-icon>
+            <span>Print Resume</span>
+          </button>
+        </div>
+
         <!-- Experience -->
         <section class="timeline reveal">
           <div class="title-wrapper">
@@ -671,6 +708,18 @@
         </header>
 
         <section class="projects reveal">
+
+          <!-- Real-Time Project Search Bar -->
+          <div class="portfolio-search-wrapper">
+            <div class="portfolio-search-box">
+              <ion-icon name="search-outline" class="search-icon"></ion-icon>
+              <input type="text" id="projectSearchInput" class="project-search-input" placeholder="Search 17 projects by name, tech (Flutter, Next.js, Node, Firebase) or domain..." autocomplete="off">
+              <button class="search-clear-btn" id="searchClearBtn" aria-label="Clear search" style="display: none;">
+                <ion-icon name="close-circle"></ion-icon>
+              </button>
+            </div>
+            <div class="search-counter-badge" id="searchCounterBadge">Showing 17 of 17 projects</div>
+          </div>
 
           <!-- Filters -->
           <ul class="filter-list">
@@ -1237,6 +1286,16 @@
             </li>
 
           </ul>
+
+          <!-- Empty State when search has no matches -->
+          <div class="project-empty-state" id="projectEmptyState" style="display: none;">
+            <div class="empty-state-icon">
+              <ion-icon name="search-outline"></ion-icon>
+            </div>
+            <h4 class="empty-state-title">No matching projects found</h4>
+            <p class="empty-state-text">Try searching for other keywords like "Flutter", "Logistics", "Dart", "Firebase", or clear the search.</p>
+            <button class="empty-state-btn" id="emptyStateResetBtn">Reset Search &amp; Filters</button>
+          </div>
         </section>
 
 
@@ -1457,7 +1516,11 @@
               <input type="email" name="email" class="form-input" placeholder="Your Email Address" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Tell me about your project, timeline, and goals..." required data-form-input></textarea>
+            <textarea name="message" class="form-input" placeholder="Tell me about your project, timeline, and goals..." required data-form-input maxlength="500"></textarea>
+
+            <div class="form-textarea-footer">
+              <span class="char-counter" id="charCounter">0 / 500 characters</span>
+            </div>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
@@ -1479,8 +1542,49 @@
     <ion-icon name="chevron-up-outline"></ion-icon>
   </button>
 
+  <!-- Lightbox Fullscreen Modal -->
+  <div class="lightbox-modal" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Screenshot Preview">
+    <div class="lightbox-overlay" id="lightboxOverlay"></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close fullscreen preview">
+        <ion-icon name="close-outline"></ion-icon>
+      </button>
+      <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous screenshot">
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </button>
+      <div class="lightbox-image-wrap">
+        <img src="" alt="Fullscreen Screenshot Preview" class="lightbox-img" id="lightboxImg">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+        <div class="lightbox-counter" id="lightboxCounter">1 / 1</div>
+      </div>
+      <button class="lightbox-nav next" id="lightboxNext" aria-label="Next screenshot">
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </button>
+    </div>
+  </div>
+
+  <!-- Command Palette Modal -->
+  <div class="command-palette-modal" id="cmdPaletteModal" aria-hidden="true" role="dialog" aria-label="Command Palette">
+    <div class="command-palette-overlay" id="cmdPaletteOverlay"></div>
+    <div class="command-palette-box">
+      <div class="cmd-input-wrap">
+        <ion-icon name="search-outline" class="cmd-search-icon"></ion-icon>
+        <input type="text" id="cmdPaletteInput" class="cmd-palette-input" placeholder="Search tabs, 17 projects, actions (e.g. 'Resume', 'Email', 'Jyotish')..." autocomplete="off">
+        <kbd class="cmd-esc-hint">ESC</kbd>
+      </div>
+      <div class="cmd-results" id="cmdResults">
+        <!-- Dynamically rendered commands and search matches -->
+      </div>
+      <div class="cmd-footer">
+        <span><kbd>↑</kbd><kbd>↓</kbd> Navigate</span>
+        <span><kbd>↵</kbd> Select</span>
+        <span><kbd>ESC</kbd> Close</span>
+      </div>
+    </div>
+  </div>
+
   <!-- Custom JS -->
-  <script src="./assets/js/script.js?v=4.0"></script>
+  <script src="./assets/js/script.js?v=5.0"></script>
 
   <!-- Ionicons -->
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
