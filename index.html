@@ -5,55 +5,86 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Yash Kushwaha's Portfolio</title>
+  <title>Yash Kushwaha | Sr. Mobile Application & Flutter Developer</title>
+  <meta name="description" content="Portfolio of Yash Kushwaha — Sr. Mobile Application Developer specializing in Flutter, Dart, Android, iOS, and high-performance Web UI/UX. 17+ apps built, 7+ deployed to production.">
 
-  <!--
-    - favicon
-  -->
+  <!-- SEO & Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Yash Kushwaha | Sr. Flutter & Mobile Developer">
+  <meta property="og:description" content="17+ apps built · 7+ in production · Flutter, Android, iOS, Web">
+  <meta property="og:image" content="https://developeryash.vercel.app/assets/images/my-avatar.png">
+  <meta property="og:url" content="https://developeryash.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Yash Kushwaha | Sr. Flutter & Mobile Developer">
+  <meta name="twitter:description" content="17+ apps built · 7+ in production · Flutter, Android, iOS, Web">
+  <meta name="twitter:image" content="https://developeryash.vercel.app/assets/images/my-avatar.png">
+  <link rel="canonical" href="https://developeryash.vercel.app/">
+
+  <!-- Favicon -->
   <link rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-icon">
+  <link rel="apple-touch-icon" href="./assets/images/my-avatar.png">
+  <meta name="theme-color" content="#121212">
+  <link rel="manifest" href="./manifest.json">
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Yash Kushwaha",
+    "url": "https://developeryash.vercel.app",
+    "jobTitle": "Sr. Mobile Application Developer",
+    "sameAs": [
+      "https://www.linkedin.com/in/kalkidevs/",
+      "https://github.com/AstroDevYash"
+    ],
+    "knowsAbout": ["Flutter", "Dart", "Android", "iOS", "Firebase", "Node.js", "UI/UX Design"]
+  }
+  </script>
 
-  <!--
-    - google font link
-  -->
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./assets/css/style.css?v=4.0">
+
+  <!-- Google Fonts (Poppins only — Inter removed, unused) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-  <!--
-    - #MAIN
-  -->
-
+  <!-- #MAIN -->
   <main>
 
-    <!--
-      - #SIDEBAR
-    -->
-
+    <!-- #SIDEBAR -->
     <aside class="sidebar" data-sidebar>
 
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Yash Kushwaha" width="80">
+          <img src="./assets/images/my-avatar.png" alt="Yash Kushwaha" width="90">
+          <div class="avatar-status" title="Available for projects"></div>
         </figure>
 
         <div class="info-content">
           <h1 class="name" title="Yash Kushwaha">Yash Kushwaha</h1>
-
-          <p class="title">Mobile App Developer</p>
+          <p class="title">
+            <span class="typing-text" data-typing></span>
+            <span class="typing-cursor">|</span>
+          </p>
+          <div class="status-pill">
+            <span class="status-dot"></span>
+            <span class="status-text">Available for Projects</span>
+          </div>
         </div>
 
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
+        <a href="./assets/Yash_Kushwaha_Resume.pdf" target="_blank" class="resume-download-btn" title="Download Resume PDF">
+          <ion-icon name="download-outline"></ion-icon>
+          <span>Download Resume</span>
+        </a>
 
+        <button class="info_more-btn" data-sidebar-btn aria-label="Toggle contact information">
+          <span>Show Contacts</span>
           <ion-icon name="chevron-down"></ion-icon>
         </button>
 
@@ -65,60 +96,44 @@
 
         <ul class="contacts-list">
 
-          <li class="contact-item">
-
+          <li class="contact-item" data-copy-text="flutterdeveloper.yash@gmail.com" title="Click to copy email">
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:flutterdeveloper.yash@gmail.com" class="contact-link">flutterdeveloper@gmail.com</a>
+              <p class="contact-title">Email (Click to Copy)</p>
+              <a href="mailto:flutterdeveloper.yash@gmail.com" class="contact-link">flutterdeveloper.yash@gmail.com</a>
             </div>
-
           </li>
 
-          <li class="contact-item">
-
+          <li class="contact-item" data-copy-text="+91 7990714432" title="Click to copy phone">
             <div class="icon-box">
               <ion-icon name="phone-portrait-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Phone</p>
-
-              <a href="tel:+91 7990714432" class="contact-link">+91 7990714432</a>
+              <a href="tel:+917990714432" class="contact-link">+91 7990714432</a>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="calendar-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Birthday</p>
-
               <time datetime="2000-11-03">Nov, 2000</time>
             </div>
-
           </li>
 
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Location</p>
-
-              <address>Vapi, Gujarat, Bharat(India)</address>
+              <address>Vapi, Gujarat, Bharat (India)</address>
             </div>
-
           </li>
 
         </ul>
@@ -128,19 +143,19 @@
         <ul class="social-list">
 
           <li class="social-item">
-            <a href="https://www.linkedin.com/in/yashkushwaha333/" class="social-link">
+            <a href="https://www.linkedin.com/in/kalkidevs/" target="_blank" class="social-link" title="LinkedIn Profile">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="https://github.com/kalkidevs/" class="social-link">
+            <a href="https://github.com/kalkidevs/" target="_blank" class="social-link" title="GitHub Profile">
               <ion-icon name="logo-github"></ion-icon>
             </a>
           </li>
 
           <li class="social-item">
-            <a href="https://wa.me/917990714432" class="social-link">
+            <a href="https://wa.me/917990714432" target="_blank" class="social-link" title="Chat on WhatsApp">
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
           </li>
@@ -152,41 +167,28 @@
     </aside>
 
 
-
-
-
-    <!--
-      - #main-content
-    -->
-
+    <!-- #MAIN-CONTENT -->
     <div class="main-content">
 
-      <!--
-        - #NAVBAR
-      -->
-
+      <!-- #NAVBAR -->
       <nav class="navbar">
 
         <ul class="navbar-list">
 
           <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>About</button>
+            <button class="navbar-link active" data-nav-link data-target="about">About</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Resume</button>
+            <button class="navbar-link" data-nav-link data-target="resume">Resume</button>
           </li>
 
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Portfolio</button>
+            <button class="navbar-link" data-nav-link data-target="portfolio">Portfolio</button>
           </li>
 
-          <!-- <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Blog</button>
-          </li> -->
-
           <li class="navbar-item">
-            <button class="navbar-link" data-nav-link>Contact</button>
+            <button class="navbar-link" data-nav-link data-target="contact">Contact</button>
           </li>
 
         </ul>
@@ -194,62 +196,62 @@
       </nav>
 
 
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
+      <!-- #ABOUT -->
+      <article class="about active" data-page="about">
 
         <header>
-          <h2 class="h2 article-title">About me</h2>
+          <h2 class="h2 article-title">About Me</h2>
         </header>
 
-        <section class="about-text">
+        <section class="about-text reveal">
           <p>
-            I’m a Mobile Application Developer with 2+ years of experience specializing in cross‑platform
-            solutions using Flutter. I build scalable, high‑performance apps for Android and iOS, combining
-            clean architecture with engaging, intuitive UI/UX.
+            I’m a <strong>Mobile Application Developer</strong> with 3+ years of hands-on experience specializing in high-performance cross-platform solutions using <strong>Flutter & Dart</strong>. I architect and build production-grade applications for <strong>Android and iOS</strong>, blending clean decoupled architecture with fluid, human-centric UI/UX design.
           </p>
           <p>
-            My expertise spans the full app lifecycle — from gathering client requirements and designing in Figma,
-            to backend integration with Node.js, Firebase, and MongoDB, and publishing on the App Store, Play Store,
-            and Amazon Appstore. I’ve developed 16+ apps and deployed 7+ production‑ready apps, integrated secure
-            payment gateways like
-            Stripe, Razorpay, and UPI, and implemented advanced state management with Provider, GetX, and Bloc.
+            My engineering expertise spans the full product lifecycle: from client discovery, interactive prototyping in <strong>Figma</strong>, to robust backend engineering with <strong>Node.js, Firebase, and MongoDB</strong>, through store deployment on the <strong>App Store, Google Play Store, and Amazon Appstore</strong>.
           </p>
           <p>
-            Passionate about continuous learning, I thrive on solving complex problems, optimizing performance,
-            and delivering products that delight users and drive results.
+            I’ve developed <strong>16+ apps</strong> and deployed <strong>7+ production-ready apps</strong>, integrated secure fintech payment gateways (Stripe, Razorpay, UPI), and implemented predictable state architectures using <strong>Provider, GetX, and Bloc</strong>.
           </p>
         </section>
-        <!--
-  - stats
--->
 
-        <section class="stats">
+        <!-- Stats Section -->
+        <section class="stats reveal">
           <ul class="stats-list">
 
             <li class="stats-item">
               <div class="stats-card">
-                <h3 class="h3">2+</h3>
-                <p class="stats-text">Experience</p>
+                <div class="stats-icon-wrap">
+                  <ion-icon name="time-outline"></ion-icon>
+                </div>
+                <div class="stats-details">
+                  <h3 class="h3 stats-number">3+</h3>
+                  <p class="stats-text">Years Experience</p>
+                </div>
               </div>
             </li>
 
             <li class="stats-item">
               <div class="stats-card">
-                <h3 class="h3">16+</h3>
-                <p class="stats-text">Projects Developed</p>
+                <div class="stats-icon-wrap">
+                  <ion-icon name="layers-outline"></ion-icon>
+                </div>
+                <div class="stats-details">
+                  <h3 class="h3 stats-number">16+</h3>
+                  <p class="stats-text">Projects Developed</p>
+                </div>
               </div>
             </li>
 
             <li class="stats-item">
               <div class="stats-card">
-                <h3 class="h3">7+</h3>
-                <p class="stats-text">Deployed App Store & Play Store</p>
+                <div class="stats-icon-wrap">
+                  <ion-icon name="cloud-upload-outline"></ion-icon>
+                </div>
+                <div class="stats-details">
+                  <h3 class="h3 stats-number">7+</h3>
+                  <p class="stats-text">Deployed to App & Play Stores</p>
+                </div>
               </div>
             </li>
 
@@ -257,79 +259,59 @@
         </section>
 
 
-        <!--
-          - service
-        -->
+        <!-- What I'm Doing -->
+        <section class="service reveal">
 
-        <section class="service">
-
-          <h3 class="h3 service-title">What i'm doing</h3>
+          <h3 class="h3 service-title">What I'm Doing</h3>
 
           <ul class="service-list">
+
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+                <img src="./assets/images/icon-app.svg" alt="Mobile App Development Icon" width="40">
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Mobile apps</h4>
-
+                <h4 class="h4 service-item-title">Mobile App Development</h4>
                 <p class="service-item-text">
-                  Professional development of applications for iOS and Android.
+                  Production-grade cross-platform apps for iOS and Android using Flutter with clean architecture and optimal device performance.
                 </p>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+                <img src="./assets/images/icon-dev.svg" alt="Backend Integration Icon" width="40">
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Backend Integration</h4>
-
+                <h4 class="h4 service-item-title">Backend Integration & APIs</h4>
                 <p class="service-item-text">
-                  Create and Implement REST APIs and Firebase to real-time functionality.
+                  Building and connecting scalable RESTful APIs, WebSockets, Firebase Auth & Firestore for real-time cloud data synchronization.
                 </p>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
+                <img src="./assets/images/icon-design.svg" alt="UI-UX Design Icon" width="40">
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">UI-UX</h4>
-
+                <h4 class="h4 service-item-title">UI / UX Engineering</h4>
                 <p class="service-item-text">
-                  Prioritizing user-centered design to create intuitive and visually appealing interfaces for mobile
-                  applications.
+                  Designing intuitive, visually striking design systems and interactive prototypes in Figma with micro-interactions and smooth transitions.
                 </p>
               </div>
-
             </li>
 
             <li class="service-item">
-
               <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+                <img src="./assets/images/icon-photo.svg" alt="App Store Deployment Icon" width="40">
               </div>
-
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Freelancing</h4>
-
+                <h4 class="h4 service-item-title">Store Publishing & Deployment</h4>
                 <p class="service-item-text">
-                  I offer freelance mobile app development services to businesses and individuals.
+                  Complete release management for Apple App Store, Google Play Store, and Amazon Appstore, including CI/CD and compliance.
                 </p>
               </div>
-
             </li>
 
           </ul>
@@ -337,11 +319,8 @@
         </section>
 
 
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
+        <!-- Testimonials -->
+        <section class="testimonials reveal">
 
           <h3 class="h3 testimonials-title">Testimonials</h3>
 
@@ -349,83 +328,73 @@
 
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item>
-
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/avatar-1.png" alt="Pankaj Patel" width="60" data-testimonials-avatar>
                 </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Pankaj Patel</h4>
-
+                <div class="testimonials-meta">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Pankaj Patel</h4>
+                  <p class="testimonials-subtitle">Sr. Flutter Developer @ Mobioxy</p>
+                  <time datetime="2023-07-10">July 10, 2023</time>
+                </div>
                 <div class="testimonials-text" data-testimonials-text>
                   <p>
-                    July 10, 2023, Pankaj (Yash's direct manager) , we worked together around 2 yrs , it was great
-                    experience to worked with Yash , I was worked as Sr. Flutter Developer at Mobioxy , He having
-                    multiple skills a part of flutter . definitely he is recommend.
-
+                    I worked together with Yash for around 2 years as his direct manager. It was a great experience working with Yash — he possesses multiple engineering skills beyond Flutter, writes clean code, and is definitely highly recommended.
                   </p>
                 </div>
-
               </div>
             </li>
 
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item>
-
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/avatar-4.png" alt="Aviral Agarwal" width="60" data-testimonials-avatar>
                 </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Aviral Agarwal</h4>
-
+                <div class="testimonials-meta">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Aviral Agarwal</h4>
+                  <p class="testimonials-subtitle">Product Lead</p>
+                  <time datetime="2023-04-15">April 15, 2023</time>
+                </div>
                 <div class="testimonials-text" data-testimonials-text>
                   <p>
-                    I hired Yash through Internshala after seeing his online portfolio and a telephonic interview. He
-                    developed a B2C website for us. He has a great work ethic and has good compatibility while working
-                    in teams.
+                    I hired Yash through Internshala after seeing his online portfolio. He developed a full B2C website for us. He has a great work ethic, takes initiative, and maintains wonderful compatibility while collaborating with cross-functional teams.
                   </p>
                 </div>
-
               </div>
             </li>
 
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item>
-
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/avatar-3.png" alt="Gayatri Singh" width="60" data-testimonials-avatar>
                 </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Gayatri Singh</h4>
-
+                <div class="testimonials-meta">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Gayatri Singh</h4>
+                  <p class="testimonials-subtitle">Client / Founder</p>
+                  <time datetime="2023-09-22">September 22, 2023</time>
+                </div>
                 <div class="testimonials-text" data-testimonials-text>
                   <p>
-                    If I could use one phrase to describe Yash, it would be 'insanely efficient'. I connected with Yash
-                    around 2 years ago when he handled a freelance project for me. His relentless efforts in the
-                    execution of those projects make him stand out from the crowd. Yash has done an exceptional job on a
-                    recent mobile app development project.
+                    If I could use one phrase to describe Yash, it would be 'insanely efficient'. Yash handled a freelance mobile app development project for me. His relentless execution and attention to visual polish make him stand out from the crowd.
                   </p>
                 </div>
-
               </div>
             </li>
 
             <li class="testimonials-item">
               <div class="content-card" data-testimonials-item>
-
                 <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Henry william" width="60" data-testimonials-avatar>
+                  <img src="./assets/images/avatar-1.png" alt="Datta G" width="60" data-testimonials-avatar>
                 </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Datta G</h4>
-
+                <div class="testimonials-meta">
+                  <h4 class="h4 testimonials-item-title" data-testimonials-title>Datta G</h4>
+                  <p class="testimonials-subtitle">Engineering Lead @ Femaata</p>
+                  <time datetime="2024-02-18">February 18, 2024</time>
+                </div>
                 <div class="testimonials-text" data-testimonials-text>
                   <p>
-                    For the previous six months, I have connected with Yash. He is proficient across platforms in terms
-                    of technology. He was a pioneer in our organization, having worked on the Femaata project. Most
-                    difficult problems were resolved by him with minimal LOC.
+                    Yash is proficient across mobile and web platforms. He was a pioneer in our organization on the Femaata project. The most difficult technical challenges and performance bottlenecks were resolved by him with minimal, elegant lines of code.
                   </p>
                 </div>
-
               </div>
             </li>
 
@@ -434,44 +403,30 @@
         </section>
 
 
-        <!--
-          - testimonials modal
-        -->
-
+        <!-- Testimonials Modal -->
         <div class="modal-container" data-modal-container>
 
           <div class="overlay" data-overlay></div>
 
           <section class="testimonials-modal">
 
-            <button class="modal-close-btn" data-modal-close-btn>
+            <button class="modal-close-btn" data-modal-close-btn aria-label="Close modal">
               <ion-icon name="close-outline"></ion-icon>
             </button>
 
             <div class="modal-img-wrapper">
               <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="80" data-modal-img>
+                <img src="./assets/images/avatar-1.png" alt="Testimonial Avatar" width="80" data-modal-img>
               </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+              <img src="./assets/images/icon-quote.svg" alt="Quote icon">
             </div>
 
             <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Daniel lewis</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
+              <h4 class="h3 modal-title" data-modal-title>Pankaj Patel</h4>
+              <time datetime="2023-07-10">July 10, 2023</time>
               <div data-modal-text>
-                <p>
-                  Richard was hired to create a corporate identity. We were very pleased with the work done. She has a
-                  lot of experience
-                  and is very concerned about the needs of client. Lorem ipsum dolor sit amet, ullamcous cididt
-                  consectetur adipiscing
-                  elit, seds do et eiusmod tempor incididunt ut laborels dolore magnarels alia.
-                </p>
+                <p>Testimonial text</p>
               </div>
-
             </div>
 
           </section>
@@ -479,192 +434,65 @@
         </div>
 
 
-        <!--
-          - clients
-        -->
+        <!-- Clients & Brands -->
+        <section class="clients reveal">
 
-        <section class="clients">
+          <h3 class="h3 clients-title">Clients & Partner Brands</h3>
+          <p class="section-subtitle">Companies and client ventures I've built software solutions for:</p>
 
-          <h3 class="h3 clients-title">Clients</h3>
+          <div class="clients-grid">
 
-          <ul class="clients-list has-scrollbar">
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-7-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-8-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-9-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-10-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
+            <div class="client-card">
+              <div class="client-logo-wrapper">
+                <img src="./assets/images/logo-8-color.png" alt="FG Glass" class="client-logo" loading="lazy">
+              </div>
+              <span class="client-name">FG Glass</span>
+            </div>
 
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
+            <div class="client-card">
+              <div class="client-logo-wrapper">
+                <img src="./assets/images/logo-10-color.png" alt="Future FA Glass" class="client-logo client-logo-future" loading="lazy">
+              </div>
+              <span class="client-name">Future / FA Glass</span>
+            </div>
 
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
+            <div class="client-card">
+              <div class="client-logo-wrapper">
+                <img src="./assets/images/logo-7-color.png" alt="Convex Tracker" class="client-logo" loading="lazy">
+              </div>
+              <span class="client-name">Convex Tracker</span>
+            </div>
 
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
+            <div class="client-card">
+              <div class="client-logo-wrapper">
+                <img src="./assets/images/logo-9-color.png" alt="furnipart" class="client-logo" loading="lazy">
+              </div>
+              <span class="client-name">furnipart</span>
+            </div>
 
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
+            <div class="client-card">
+              <div class="client-logo-wrapper">
+                <img src="./assets/images/logo-11-color.png" alt="Infinity" class="client-logo" loading="lazy">
+              </div>
+              <span class="client-name">Infinity</span>
+            </div>
 
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
+          </div>
 
         </section>
-        <!-- <section class="Certificates">
-
-          <h3 class="h3 clients-title">Certificates</h3>
-
-          <ul class="clients-list has-scrollbar">
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-7-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-8-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-9-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-10-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-1-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-2-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-3-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-4-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-5-color.png" alt="client logo">
-              </a>
-            </li>
-
-            <li class="clients-item">
-              <a href="#">
-                <img src="./assets/images/logo-6-color.png" alt="client logo">
-              </a>
-            </li>
-
-          </ul>
-
-        </section> -->
 
       </article>
 
 
-
-
-
-      <!--
-        - #RESUME
-      -->
+      <!-- #RESUME -->
       <article class="resume" data-page="resume">
 
         <header>
           <h2 class="h2 article-title">Resume</h2>
         </header>
 
-        <!-- Education -->
-        <section class="timeline">
-          <div class="title-wrapper">
-            <div class="icon-box">
-              <ion-icon name="book-outline"></ion-icon>
-            </div>
-            <h3 class="h3">Education</h3>
-          </div>
-
-          <ol class="timeline-list">
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Chandigarh University - Chandigarh, India</h4>
-              <span>2021 — 2023</span>
-              <p class="timeline-text">Master of Computer Applications (MCA) | GPA: 6.98</p>
-            </li>
-
-            <li class="timeline-item">
-              <h4 class="h4 timeline-item-title">Savitribai Phule Pune University (SPPU) - Pune, India</h4>
-              <span>2018 — 2021</span>
-              <p class="timeline-text">Bachelor of Computer Applications (BCA) | GPA: 6.9</p>
-            </li>
-
-          </ol>
-        </section>
-
         <!-- Experience -->
-        <section class="timeline">
+        <section class="timeline reveal">
           <div class="title-wrapper">
             <div class="icon-box">
               <ion-icon name="briefcase-outline"></ion-icon>
@@ -676,349 +504,733 @@
 
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Sr. Flutter Developer</h4>
-              <span>Proactii Media LLP Pvt Ltd | 2023 – Present | Vapi, Gujarat</span>
+              <span>Proactii Media LLP | 2023 – Present | Vapi, Gujarat</span>
               <p class="timeline-text">
-                • Developed and deployed 7+ Flutter apps on App Store, Play Store, and Amazon Appstore.<br>
-                • Managed complete app lifecycle: design, development, testing, deployment, and post-launch support.<br>
-                • Designed intuitive UIs in Figma and implemented complex Flutter components.<br>
-                • Integrated backend services using Node.js and REST APIs.<br>
-                • Implemented secure payments (Stripe, Razorpay, UPI) and handled local storage (Hive,
-                SharedPreferences).
+                • Engineered and deployed 7+ Flutter applications to Apple App Store, Google Play Store, and Amazon Appstore.<br>
+                • Managed end-to-end mobile product delivery: architecture design, interactive Figma prototyping, API integration, and production releases.<br>
+                • Built modular Flutter state architectures with Provider, Bloc, and GetX, ensuring 60fps rendering and clean separation of concerns.<br>
+                • Connected cloud backends utilizing Node.js, Firebase, and high-throughput REST APIs.<br>
+                • Integrated multi-vendor payment gateways (Stripe, Razorpay, UPI) and encrypted local storage (Hive, SharedPreferences).
               </p>
             </li>
 
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Android App Developer Intern</h4>
-              <span>Teachnook | Oct – Dec 2022 | Remote</span>
+              <span>Teachnook | Oct 2022 – Dec 2022 | Remote</span>
               <p class="timeline-text">
-                • Built interactive quiz and e-commerce apps with Firebase backend.<br>
-                • Enhanced user engagement with real-time features and secure authentication.<br>
-                • Strengthened expertise in Flutter, Firebase, and UI/UX design best practices.
+                • Built interactive educational quiz and e-commerce mobile applications powered by Firebase Auth & Realtime DB.<br>
+                • Engineered real-time chat and push notifications, elevating user engagement metrics.<br>
+                • Strengthened core foundations in Dart, Flutter SDK, Material 3, and mobile UI accessibility best practices.
               </p>
             </li>
 
           </ol>
         </section>
 
+        <!-- Education -->
+        <section class="timeline reveal">
+          <div class="title-wrapper">
+            <div class="icon-box">
+              <ion-icon name="book-outline"></ion-icon>
+            </div>
+            <h3 class="h3">Education</h3>
+          </div>
+
+          <ol class="timeline-list">
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Master of Computer Applications (MCA)</h4>
+              <span>Chandigarh University | 2021 — 2023 | Chandigarh, India</span>
+              <p class="timeline-text">Advanced Software Engineering, Mobile Architectures, Distributed Cloud Systems. CGPA: 6.98</p>
+            </li>
+
+            <li class="timeline-item">
+              <h4 class="h4 timeline-item-title">Bachelor of Computer Applications (BCA)</h4>
+              <span>Savitribai Phule Pune University (SPPU) | 2018 — 2021 | Pune, India</span>
+              <p class="timeline-text">Core Computer Science, Object-Oriented Programming, Database Management Systems, Web Development. CGPA: 6.9</p>
+            </li>
+
+          </ol>
+        </section>
+
         <!-- Skills -->
-        <section class="skill">
-          <h3 class="h3 skills-title">My Skills</h3>
-          <ul class="skills-list content-card">
+        <section class="skill reveal">
+          <h3 class="h3 skills-title">Technical Expertise</h3>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Flutter / Dart</h5>
-                <data value="90">90%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 90%;"></div>
-              </div>
-            </li>
+          <div class="skill-category-block">
+            <h4 class="skill-cat-title"><ion-icon name="phone-portrait-outline"></ion-icon> Mobile & Core Development</h4>
+            <ul class="skills-list content-card">
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Node.js</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-            </li>
+              <li class="skills-item">
+                <div class="title-wrapper">
+                  <h5 class="h5">Flutter & Dart (iOS & Android)</h5>
+                  <data value="95">95%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 95%;"></div>
+                </div>
+              </li>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">MongoDB / Firebase</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
+              <li class="skills-item">
+                <div class="title-wrapper">
+                  <h5 class="h5">State Management (Bloc, Provider, GetX)</h5>
+                  <data value="92">92%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 92%;"></div>
+                </div>
+              </li>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Java / Python</h5>
-                <data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 75%;"></div>
-              </div>
-            </li>
+              <li class="skills-item">
+                <div class="title-wrapper">
+                  <h5 class="h5">Clean Architecture & Offline-First (Hive, SQLite)</h5>
+                  <data value="88">88%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 88%;"></div>
+                </div>
+              </li>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">UI/UX (Figma, Miro, Xd)</h5>
-                <data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 85%;"></div>
-              </div>
-            </li>
+            </ul>
+          </div>
 
-            <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Payment Gateway Integration (Stripe, Razorpay, UPI)</h5>
-                <data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width: 80%;"></div>
-              </div>
-            </li>
+          <div class="skill-category-block">
+            <h4 class="skill-cat-title"><ion-icon name="server-outline"></ion-icon> Backend, Cloud & APIs</h4>
+            <ul class="skills-list content-card">
 
-          </ul>
+              <li class="skills-item">
+                <div class="title-wrapper">
+                  <h5 class="h5">Node.js & RESTful APIs</h5>
+                  <data value="85">85%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 85%;"></div>
+                </div>
+              </li>
+
+              <li class="skills-item">
+                <div class="title-wrapper">
+                  <h5 class="h5">Firebase (Auth, Firestore, Cloud Functions)</h5>
+                  <data value="88">88%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 88%;"></div>
+                </div>
+              </li>
+
+              <li class="skills-item">
+                <div class="title-wrapper">
+                  <h5 class="h5">Payment Gateway Integration (Stripe, Razorpay, UPI)</h5>
+                  <data value="85">85%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 85%;"></div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="skill-category-block">
+            <h4 class="skill-cat-title"><ion-icon name="color-palette-outline"></ion-icon> Design, Tooling & DevOps</h4>
+            <ul class="skills-list content-card">
+
+              <li class="skills-item">
+                <div class="title-wrapper">
+                  <h5 class="h5">UI/UX Prototyping (Figma, Miro, Adobe XD)</h5>
+                  <data value="88">88%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 88%;"></div>
+                </div>
+              </li>
+
+              <li class="skills-item">
+                <div class="title-wrapper">
+                  <h5 class="h5">App Store & Google Play Publishing / CI/CD</h5>
+                  <data value="90">90%</data>
+                </div>
+                <div class="skill-progress-bg">
+                  <div class="skill-progress-fill" style="width: 90%;"></div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
         </section>
 
       </article>
 
 
-
-
-
-
-      <!--
-  - #PORTFOLIO
--->
+      <!-- #PORTFOLIO -->
       <article class="portfolio" data-page="portfolio">
 
         <header>
           <h2 class="h2 article-title">Portfolio</h2>
         </header>
 
-        <section class="projects">
+        <section class="projects reveal">
 
           <!-- Filters -->
           <ul class="filter-list">
             <li class="filter-item"><button class="active" data-filter-btn>All</button></li>
-            <li class="filter-item"><button data-filter-btn>Mobile Designs</button></li>
-            <li class="filter-item"><button data-filter-btn>Applications</button></li>
-            <li class="filter-item"><button data-filter-btn>Web development</button></li>
+            <li class="filter-item"><button data-filter-btn>Production Apps</button></li>
+            <li class="filter-item"><button data-filter-btn>Enterprise &amp; Logistics</button></li>
+            <li class="filter-item"><button data-filter-btn>E-Commerce &amp; FinTech</button></li>
+            <li class="filter-item"><button data-filter-btn>UI/UX &amp; Web</button></li>
           </ul>
 
           <div class="filter-select-box">
             <button class="filter-select" data-select>
-              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-value" data-selecct-value>All Categories</div>
               <div class="select-icon"><ion-icon name="chevron-down"></ion-icon></div>
             </button>
             <ul class="select-list">
               <li class="select-item"><button data-select-item>All</button></li>
-              <li class="select-item"><button data-select-item>Mobile Designs</button></li>
-              <li class="select-item"><button data-select-item>Applications</button></li>
-              <li class="select-item"><button data-select-item>Web development</button></li>
+              <li class="select-item"><button data-select-item>Production Apps</button></li>
+              <li class="select-item"><button data-select-item>Enterprise &amp; Logistics</button></li>
+              <li class="select-item"><button data-select-item>E-Commerce &amp; FinTech</button></li>
+              <li class="select-item"><button data-select-item>UI/UX &amp; Web</button></li>
             </ul>
           </div>
 
-          <!-- Project List -->
+                    <!-- Project List (All 17 Projects) -->
           <ul class="project-list">
 
-            <!-- Fg GlassPro -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <!-- 1. Jyotish Gyan (Applications & Web) -->
+            <li class="project-item active" data-filter-item data-category="production apps, e-commerce & fintech, ui/ux & web" data-app-detail="jyotishgyan">
               <figure class="project-img">
-                <div class="project-new-badge">New</div>
-                <div class="project-item-icon-box" data-app-detail="fg-glasspro"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-11.png" alt="Fg GlassPro" loading="lazy">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Flagship Platform</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="jyotishgyan" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/jyotishgyan/01_precision_vedic_kundali.jpg" alt="Jyotish Gyan Vedic Astrology Platform" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
               </figure>
               <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Applications & Web</span>
+                  <span class="project-platform-pill">Flutter + Next.js 15</span>
+                </div>
+                <h3 class="project-title">Jyotish Gyan</h3>
+                <p class="project-desc">
+                  Full-stack Vedic Astrology ecosystem with Swiss Ephemeris Kundali calculations, daily astronomical Panchang, and AI astrobot consultations.
+                </p>
+                <div class="project-availability">
+                  <a href="https://jyotishgyan.co.in" target="_blank" class="badge live-web" title="Open Live Platform">
+                    <ion-icon name="globe-outline" class="badge-icon-ion"></ion-icon> Live Platform
+                  </a>
+                  <span class="badge prototype">
+                    <ion-icon name="phone-portrait-outline" class="badge-icon-ion"></ion-icon> Flutter App
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 2. Fg GlassPro (Enterprise ERP) -->
+            <li class="project-item active" data-filter-item data-category="production apps, enterprise & logistics" data-app-detail="fg-glasspro">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Production ERP</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="fg-glasspro" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/project-11.png" alt="Fg GlassPro Mobile ERP" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Enterprise ERP</span>
+                  <span class="project-platform-pill">Flutter / iOS & Android</span>
+                </div>
                 <h3 class="project-title">Fg GlassPro</h3>
-                <p class="project-category">Applications</p>
                 <p class="project-desc">
-                  ERP-style app for the glass industry, with order tracking, customer management, and digital invoicing.
+                  Enterprise glass industry ERP app with computerized cutting metrics, digital invoicing, dispatch tracking, and distributor ledger history.
                 </p>
                 <div class="project-availability">
-                  <a href="https://play.google.com/store/apps/details?id=com.test.flutter_fg_glass_app" target="_blank"
-                    class="badge playstore">
-                    <img src="./assets/icons/playstore.png" class="badge-icon" alt="Play Store"> Play Store
+                  <a href="https://play.google.com/store/apps/details?id=com.test.flutter_fg_glass_app" target="_blank" class="badge playstore" title="Open Play Store">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Play Store"> Play Store
                   </a>
-                  <a href="https://apps.apple.com/in/app/fg-glasspro/id1665823610" target="_blank"
-                    class="badge appstore">
-                    <img src="./assets/icons/appstore.png" class="badge-icon" alt="App Store"> App Store
+                  <a href="https://apps.apple.com/in/app/fg-glasspro/id1665823610" target="_blank" class="badge appstore" title="Open App Store">
+                    <img src="./assets/icons/appstore-logo.svg" class="badge-icon svg" alt="App Store"> App Store
                   </a>
                 </div>
               </div>
             </li>
 
-            <!-- Future Tracker -->
-            <li class="project-item active" data-filter-item data-category="applications">
+            <!-- 3. Future Tracker (Field Telematics) -->
+            <li class="project-item active" data-filter-item data-category="production apps, enterprise & logistics" data-app-detail="future-tracker">
               <figure class="project-img">
-                <div class="project-item-icon-box" data-app-detail="future-tracker"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-12.jpeg" alt="Future Tracker" loading="lazy">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Live on Stores</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="future-tracker" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/project-12.jpeg" alt="Future Tracker Field Navigation App" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
               </figure>
               <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Field Telematics</span>
+                  <span class="project-platform-pill">Flutter / Google Maps API</span>
+                </div>
                 <h3 class="project-title">Future Tracker</h3>
-                <p class="project-category">Applications</p>
                 <p class="project-desc">
-                  Business and productivity tracker helping companies manage projects, monitor sales, and improve
-                  reporting.
+                  Commercial field navigation and sales operations tracker for FA Glass with turn-by-turn routing, geofenced client visits, and digital POD.
                 </p>
                 <div class="project-availability">
-                  <a href="https://play.google.com/store/apps/details?id=com.faglass.app.fa_glass_app" target="_blank"
-                    class="badge playstore">
-                    <img src="./assets/icons/playstore.png" class="badge-icon" alt="Play Store"> Play Store
+                  <a href="https://play.google.com/store/apps/details?id=com.faglass.app.fa_glass_app" target="_blank" class="badge playstore" title="Open Play Store">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Play Store"> Play Store
                   </a>
-                  <a href="https://apps.apple.com/in/app/fa-glass/id6502397420" target="_blank" class="badge appstore">
-                    <img src="./assets/icons/appstore.png" class="badge-icon" alt="App Store"> App Store
+                  <a href="https://apps.apple.com/in/app/fa-glass/id6502397420" target="_blank" class="badge appstore" title="Open App Store">
+                    <img src="./assets/icons/appstore-logo.svg" class="badge-icon svg" alt="App Store"> App Store
                   </a>
                 </div>
               </div>
             </li>
 
-            <!-- Edu-Point -->
-            <li class="project-item active" data-filter-item data-category="mobile designs">
+            <!-- 4. DD-One Suite (HRMS & Telematics) -->
+            <li class="project-item active" data-filter-item data-category="production apps, enterprise & logistics" data-app-detail="dd-one">
               <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-13.png" alt="Edu-Point" loading="lazy">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Enterprise Suite</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="dd-one" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/dd-one/dashboard.jpg" alt="DD-One Employee Management Suite" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
               </figure>
               <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">HRMS & Telematics</span>
+                  <span class="project-platform-pill">Flutter / Geofenced Auth</span>
+                </div>
+                <h3 class="project-title">DD-One Suite</h3>
+                <p class="project-desc">
+                  Enterprise employee workspace application featuring smart geofenced GPS attendance, OTP authentication, and project timesheet logging.
+                </p>
+                <div class="project-availability">
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="iOS & Android"> iOS & Android
+                  </span>
+                  <span class="badge prototype">
+                    <ion-icon name="shield-checkmark-outline" class="badge-icon-ion"></ion-icon> Enterprise Suite
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 5. vCard Pro (Networking App) -->
+            <li class="project-item active" data-filter-item data-category="production apps, e-commerce & fintech" data-app-detail="vcardpro">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Digital Networking</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="vcardpro" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/vcardpro/1.jpg" alt="vCard Pro Digital Visiting Card" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Networking App</span>
+                  <span class="project-platform-pill">Flutter / NFC & QR</span>
+                </div>
+                <h3 class="project-title">vCard Pro</h3>
+                <p class="project-desc">
+                  Modern digital business card application with dynamic QR generation, NFC contact sharing, address book export, and scan engagement metrics.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="qr-code-outline" class="badge-icon-ion"></ion-icon> NFC & QR
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Mobile App"> Mobile App
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 6. FuelFlow (Industrial Fleet) -->
+            <li class="project-item active" data-filter-item data-category="enterprise & logistics" data-app-detail="fuelflow">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Fleet Logistics</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="fuelflow" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/fuelflow/workerdash.png" alt="FuelFlow Fleet Dispenser App" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Industrial Fleet</span>
+                  <span class="project-platform-pill">Flutter / Dual Role</span>
+                </div>
+                <h3 class="project-title">FuelFlow</h3>
+                <p class="project-desc">
+                  Commercial fuel dispatch and fleet refueling telemetry app with specialized worker & driver cockpits, QR token scans, and tamper-proof slips.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="hardware-chip-outline" class="badge-icon-ion"></ion-icon> Anti-Fraud QA
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Fleet App"> Fleet App
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 7. eSquare Logistics (Port Operations) -->
+            <li class="project-item active" data-filter-item data-category="enterprise & logistics" data-app-detail="esquare">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Yard Operations</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="esquare" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/esquare/homedark.jpg" alt="eSquare Container Logistics" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Port Operations</span>
+                  <span class="project-platform-pill">Flutter / Dark UI</span>
+                </div>
+                <h3 class="project-title">eSquare Logistics</h3>
+                <p class="project-desc">
+                  Container freight station terminal application with 3D yard bay mapping, gate-in/gate-out passes, equipment movement, and damage logs.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="grid-outline" class="badge-icon-ion"></ion-icon> Yard Telematics
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Dark Mode"> Dark Mode
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 8. Wabric Store (E-Commerce) -->
+            <li class="project-item active" data-filter-item data-category="production apps, e-commerce & fintech" data-app-detail="wabric">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Lifestyle E-Com</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="wabric" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/wabric/order_confirm.jpg" alt="Wabric Fashion & Fabric E-Commerce" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">E-Commerce</span>
+                  <span class="project-platform-pill">Flutter / Firebase & Razorpay</span>
+                </div>
+                <h3 class="project-title">Wabric Store</h3>
+                <p class="project-desc">
+                  Textile and lifestyle shopping mobile app with multi-vendor catalogs, cashback rewards wallet, frictionless checkout, and profile customization.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="gift-outline" class="badge-icon-ion"></ion-icon> Cashback Wallet
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="E-Commerce"> E-Commerce
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 9. Gujarat Store (Mobile Storefront) -->
+            <li class="project-item active" data-filter-item data-category="production apps, e-commerce & fintech" data-app-detail="gujaratstore">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Regional E-Com</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="gujaratstore" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/gujaratstore/application.png" alt="Gujarat Store Ethnic Apparel" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Mobile Storefront</span>
+                  <span class="project-platform-pill">Flutter / Bloc & REST</span>
+                </div>
+                <h3 class="project-title">Gujarat Store</h3>
+                <p class="project-desc">
+                  Authentic handloom sarees, regional craftsmanship, and certified organic goods storefront with category curation, cart, and wishlist.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="cart-outline" class="badge-icon-ion"></ion-icon> Storefront
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="App"> App
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 10. TraderDaddy (Trading Cockpit) -->
+            <li class="project-item active" data-filter-item data-category="e-commerce & fintech, ui/ux & web" data-app-detail="traderdaddy">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">FinTech Cockpit</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="traderdaddy" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/traderdaddy/app_icon.png" alt="TraderDaddy FinTech Analytics" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Trading Cockpit</span>
+                  <span class="project-platform-pill">Flutter + Next.js Web</span>
+                </div>
+                <h3 class="project-title">TraderDaddy</h3>
+                <p class="project-desc">
+                  Trading intelligence platform featuring real-time crypto portfolio telemetry, psychological trade journaling, and dynamic risk management.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="trending-up-outline" class="badge-icon-ion"></ion-icon> Risk Telemetry
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Web & Mobile"> Web & Mobile
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 11. Convex Tracker (Freight Logistics) -->
+            <li class="project-item active" data-filter-item data-category="enterprise & logistics" data-app-detail="convex-tracker">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Port Logistics</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="convex-tracker" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/project-10.png" alt="Convex Tracker Port Logistics" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Freight Logistics</span>
+                  <span class="project-platform-pill">Flutter / Biometric Auth</span>
+                </div>
+                <h3 class="project-title">Convex Tracker</h3>
+                <p class="project-desc">
+                  Intermodal port container telematics platform with Face ID commercial driver sign-ons, arrival TEU timestamps, and harbor dispatch.
+                </p>
+                <div class="project-availability">
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Play Store"> Play Store
+                  </span>
+                  <span class="badge appstore">
+                    <img src="./assets/icons/appstore-logo.svg" class="badge-icon svg" alt="App Store"> App Store
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 12. FG Director App (Factory Intelligence) -->
+            <li class="project-item active" data-filter-item data-category="enterprise & logistics" data-app-detail="director-app">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Executive Suite</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="director-app" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/director-app/machine1.jpg" alt="FG Glass Director Executive App" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Factory Intelligence</span>
+                  <span class="project-platform-pill">Flutter / Industrial IoT</span>
+                </div>
+                <h3 class="project-title">FG Director App</h3>
+                <p class="project-desc">
+                  Private executive plant oversight application delivering real-time CNC machine uptime, furnace heat curves, and production dispatch totals.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="speedometer-outline" class="badge-icon-ion"></ion-icon> Factory IoT
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Executive"> Executive
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 13. Vartman Pravah (Media & News) -->
+            <li class="project-item active" data-filter-item data-category="production apps, e-commerce & fintech" data-app-detail="vartmanpravah">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Live News</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="vartmanpravah" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/vartmanpravah/banner.jpg" alt="Vartman Pravah Regional Journalism" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Media & News</span>
+                  <span class="project-platform-pill">Flutter / E-Paper & Audio</span>
+                </div>
+                <h3 class="project-title">Vartman Pravah</h3>
+                <p class="project-desc">
+                  24/7 breaking regional journalism and digital e-paper app with offline reading, text-to-speech audio reader, and instant push notifications.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="newspaper-outline" class="badge-icon-ion"></ion-icon> Digital E-Paper
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="News App"> News App
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 14. Wheeler VNext (Fleet Logistics) -->
+            <li class="project-item active" data-filter-item data-category="enterprise & logistics" data-app-detail="wheeler">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Fleet Automation</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="wheeler" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/wheeler/logo.png" alt="Wheeler VNext Fleet Suite" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Fleet Logistics</span>
+                  <span class="project-platform-pill">Flutter / Offline Telematics</span>
+                </div>
+                <h3 class="project-title">Wheeler VNext</h3>
+                <p class="project-desc">
+                  Fleet transport suite connecting commercial drivers, dispatchers, and stations for trip fuel quotas, maintenance logs, and shift safety.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="car-sport-outline" class="badge-icon-ion"></ion-icon> Fuel Quotas
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Fleet App"> Fleet App
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 15. USF Connect (Solar Traceability) -->
+            <li class="project-item active" data-filter-item data-category="enterprise & logistics" data-app-detail="usf-connect">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Solar QA</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="usf-connect" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/projects/usf-connect/logo.png" alt="USF Connect Solar Traceability" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Solar Traceability</span>
+                  <span class="project-platform-pill">Flutter / Optical Barcode QA</span>
+                </div>
+                <h3 class="project-title">USF Connect</h3>
+                <p class="project-desc">
+                  Industrial manufacturing traceability mobile app monitoring solar panel wafer batches, electroluminescence quality audits, and packaging.
+                </p>
+                <div class="project-availability">
+                  <span class="badge prototype">
+                    <ion-icon name="barcode-outline" class="badge-icon-ion"></ion-icon> Barcode QA
+                  </span>
+                  <span class="badge playstore">
+                    <img src="./assets/icons/playstore-logo.svg" class="badge-icon svg" alt="Factory App"> Factory App
+                  </span>
+                </div>
+              </div>
+            </li>
+
+            <!-- 16. Edu-Point (EdTech UI/UX) -->
+            <li class="project-item active" data-filter-item data-category="ui/ux & web" data-app-detail="edu-point">
+              <figure class="project-img">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Figma Prototype</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="edu-point" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/project-13.png" alt="Edu-Point Learning App Design" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
+              </figure>
+              <div class="project-content">
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">EdTech UI/UX</span>
+                  <span class="project-platform-pill">Figma / Design System</span>
+                </div>
                 <h3 class="project-title">Edu-Point</h3>
-                <p class="project-category">Mobile Designs</p>
                 <p class="project-desc">
-                  Community learning app prototype with student–teacher interaction and interactive course management.
+                  Community education and tutor onboarding mobile application prototype with interactive course paths, gamified streaks, and session booking.
                 </p>
                 <div class="project-availability">
-                  <a href="https://www.figma.com/proto/3nNS4JIGYXtSz4ku4rP8e1/Edu-Point-(Community)?t=vmrtUOeMhDUHGhLf-0&scaling=scale-down"
-                    target="_blank" class="badge prototype">
-                    <img src="./assets/icons/origami.png" class="badge-icon" alt="Prototype"> Prototype
+                  <a href="https://www.figma.com/proto/3nNS4JIGYXtSz4ku4rP8e1/Edu-Point-(Community)?t=vmrtUOeMhDUHGhLf-0&scaling=scale-down" target="_blank" class="badge prototype" title="Open Figma Prototype">
+                    <ion-icon name="logo-figma" class="badge-icon-ion"></ion-icon> Figma Prototype
                   </a>
                 </div>
               </div>
             </li>
 
-            <!-- Fundo -->
-            <li class="project-item active" data-filter-item data-category="mobile designs">
+            <!-- 17. GameStream Hub (Esports Concept) -->
+            <li class="project-item active" data-filter-item data-category="ui/ux & web" data-app-detail="gamestream">
               <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-3.jpg" alt="Fundo" loading="lazy">
+                <div class="project-badge-top">
+                  <span class="project-new-badge">Cyberpunk UI</span>
+                </div>
+                <div class="project-item-icon-box" data-app-detail-btn="gamestream" title="View case study & screenshots">
+                  <ion-icon name="scan-outline"></ion-icon>
+                </div>
+                <img src="./assets/images/project-4.png" alt="GameStream Esports UI System" loading="lazy">
+                <div class="project-hover-caption">Click to view case study & screenshots</div>
               </figure>
               <div class="project-content">
-                <h3 class="project-title">Fundo</h3>
-                <p class="project-category">Mobile Designs</p>
+                <div class="project-header-meta">
+                  <span class="project-cat-pill">Esports Concept</span>
+                  <span class="project-platform-pill">Figma / Gaming UI</span>
+                </div>
+                <h3 class="project-title">GameStream Hub</h3>
                 <p class="project-desc">
-                  Finance management mobile app design for tracking expenses, income and budgeting.
+                  Futuristic cyberpunk dark-mode mobile UI designed for competitive esports matchmaking, live streamer channels, and gamer stat radars.
                 </p>
                 <div class="project-availability">
                   <span class="badge prototype">
-                    <img src="./assets/icons/origami.png" class="badge-icon" alt="Prototype"> Prototype
-                  </span>
-                </div>
-              </div>
-            </li>
-
-            <!-- Convex -->
-            <li class="project-item active" data-filter-item data-category="applications">
-              <figure class="project-img">
-                <div class="project-item-icon-box" data-app-detail="convex"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-10.png" alt="Convex" loading="lazy">
-              </figure>
-              <div class="project-content">
-                <h3 class="project-title">Convex</h3>
-                <p class="project-category">Applications</p>
-                <p class="project-desc">
-                  Business analytics and reporting app with live dashboards, sales tracking, and predictive insights.
-                </p>
-                <div class="project-availability">
-                  <a href="#" target="_blank" class="badge playstore">
-                    <img src="./assets/icons/playstore.png" class="badge-icon" alt="Play Store"> Play Store
-                  </a>
-                  <a href="#" target="_blank" class="badge appstore">
-                    <img src="./assets/icons/appstore.png" class="badge-icon" alt="App Store"> App Store
-                  </a>
-                </div>
-              </div>
-            </li>
-
-            <!-- DSM -->
-            <li class="project-item active" data-filter-item data-category="mobile designs">
-              <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-5.png" alt="DSM" loading="lazy">
-              </figure>
-              <div class="project-content">
-                <h3 class="project-title">DSM.</h3>
-                <p class="project-category">Mobile Designs</p>
-                <p class="project-desc">
-                  Design prototype for a digital service management application with task and workflow features.
-                </p>
-                <div class="project-availability">
-                  <span class="badge prototype">
-                    <img src="./assets/icons/origami.png" class="badge-icon" alt="Prototype"> Prototype
-                  </span>
-                </div>
-              </div>
-            </li>
-
-            <!-- MetaSpark -->
-            <li class="project-item active" data-filter-item data-category="mobile designs">
-              <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-6.png" alt="MetaSpark" loading="lazy">
-              </figure>
-              <div class="project-content">
-                <h3 class="project-title">MetaSpark</h3>
-                <p class="project-category">Mobile Designs</p>
-                <p class="project-desc">
-                  Creative concept mobile app design with modern UI elements for networking and sharing.
-                </p>
-                <div class="project-availability">
-                  <span class="badge prototype">
-                    <img src="./assets/icons/origami.png" class="badge-icon" alt="Prototype"> Prototype
-                  </span>
-                </div>
-              </div>
-            </li>
-
-            <!-- Task Manager -->
-            <li class="project-item active" data-filter-item data-category="applications">
-              <figure class="project-img">
-                <div class="project-item-icon-box" data-app-detail="task-manager"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-8.jpg" alt="Task Manager" loading="lazy">
-              </figure>
-              <div class="project-content">
-                <h3 class="project-title">Task Manager</h3>
-                <p class="project-category">Applications</p>
-                <p class="project-desc">
-                  A productivity mobile app for managing tasks, schedules and team collaboration.
-                </p>
-                <div class="project-availability">
-                  <a href="#" target="_blank" class="badge playstore">
-                    <img src="./assets/icons/playstore.png" class="badge-icon" alt="Play Store"> Play Store
-                  </a>
-                </div>
-              </div>
-            </li>
-
-            <!-- Web Projects -->
-            <li class="project-item active" data-filter-item data-category="web development">
-              <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-7.png" alt="Summary Web" loading="lazy">
-              </figure>
-              <div class="project-content">
-                <h3 class="project-title">Summary</h3>
-                <p class="project-category">Web development</p>
-                <p class="project-desc">
-                  A responsive website built for reporting and summary dashboards using modern web technologies.
-                </p>
-                <div class="project-availability">
-                  <span class="badge prototype">
-                    <img src="./assets/icons/origami.png" class="badge-icon" alt="Web"> Web
-                  </span>
-                </div>
-              </div>
-            </li>
-
-            <li class="project-item active" data-filter-item data-category="web development">
-              <figure class="project-img">
-                <div class="project-item-icon-box"><ion-icon name="eye-outline"></ion-icon></div>
-                <img src="./assets/images/project-9.png" alt="Arrival Web" loading="lazy">
-              </figure>
-              <div class="project-content">
-                <h3 class="project-title">Arrival</h3>
-                <p class="project-category">Web development</p>
-                <p class="project-desc">
-                  A portfolio web project with clean UI and optimized responsive design.
-                </p>
-                <div class="project-availability">
-                  <span class="badge prototype">
-                    <img src="./assets/icons/origami.png" class="badge-icon" alt="Web"> Web
+                    <ion-icon name="game-controller-outline" class="badge-icon-ion"></ion-icon> Gaming Concept
                   </span>
                 </div>
               </div>
@@ -1026,17 +1238,18 @@
 
           </ul>
         </section>
-        
+
+
         <!-- App Detail Modal -->
         <div class="app-detail-modal" data-app-modal>
           <div class="app-detail-overlay" data-app-overlay></div>
-          
+
           <div class="app-detail-content">
             <!-- Close Button -->
-            <button class="app-detail-close" data-app-close>
+            <button class="app-detail-close" data-app-close aria-label="Close details">
               <ion-icon name="close-outline"></ion-icon>
             </button>
-            
+
             <!-- Hero Section -->
             <section class="app-hero">
               <div class="app-hero-content">
@@ -1048,354 +1261,203 @@
                   <p class="app-tagline" data-app-tagline></p>
                   <div class="app-cta-buttons">
                     <a href="#" class="app-cta playstore" data-app-playstore>
-                      <img src="./assets/icons/playstore.png" alt="Play Store">
+                      <img src="./assets/icons/playstore-logo.svg" alt="Play Store" class="cta-svg-icon">
                       <span>Play Store</span>
                     </a>
                     <a href="#" class="app-cta appstore" data-app-appstore>
-                      <img src="./assets/icons/appstore.png" alt="App Store">
+                      <img src="./assets/icons/appstore-logo.svg" alt="App Store" class="cta-svg-icon">
                       <span>App Store</span>
                     </a>
                     <a href="#" class="app-cta prototype" data-app-prototype>
-                      <img src="./assets/icons/origami.png" alt="Prototype">
-                      <span>Prototype</span>
+                      <ion-icon name="open-outline" class="cta-ion-icon"></ion-icon>
+                      <span>Launch Demo</span>
                     </a>
                   </div>
                 </div>
               </div>
             </section>
-            
+
             <!-- App Overview -->
             <section class="app-overview">
               <div class="app-overview-content">
                 <div class="app-description">
-                  <h3>About this app</h3>
+                  <h3>About This Project</h3>
                   <p data-app-description></p>
                 </div>
                 <div class="app-stats">
                   <div class="app-stat-item">
                     <span class="stat-number" data-app-downloads>50K+</span>
-                    <span class="stat-label">Downloads</span>
+                    <span class="stat-label">Scale / Reach</span>
                   </div>
                   <div class="app-stat-item">
-                    <span class="stat-number" data-app-rating>4.5</span>
+                    <span class="stat-number" data-app-rating>4.8</span>
                     <span class="stat-label">Rating</span>
                   </div>
                   <div class="app-stat-item">
                     <span class="stat-number" data-app-release>2024</span>
-                    <span class="stat-label">Released</span>
+                    <span class="stat-label">Release Year</span>
                   </div>
                 </div>
               </div>
               <div class="app-tech-stack">
-                <h4>Tech Stack</h4>
+                <h4>Technologies & Architecture</h4>
                 <div class="tech-tags" data-app-tech>
-                  <!-- Tech tags will be dynamically added -->
+                  <!-- Dynamically populated -->
                 </div>
               </div>
             </section>
-            
+
             <!-- Screenshot Gallery -->
             <section class="app-gallery">
-              <h3>Screenshots</h3>
+              <h3>Visual Showcase</h3>
               <div class="gallery-container">
                 <div class="gallery-main">
                   <img src="" alt="" class="gallery-main-img" data-gallery-main>
                 </div>
                 <div class="gallery-thumbnails" data-gallery-thumbnails>
-                  <!-- Thumbnails will be dynamically added -->
+                  <!-- Dynamically populated -->
                 </div>
               </div>
             </section>
-            
+
             <!-- Feature Highlights -->
             <section class="app-features">
-              <h3>Key Features</h3>
+              <h3>Core Capabilities</h3>
               <div class="features-grid" data-app-features>
-                <!-- Features will be dynamically added -->
+                <!-- Dynamically populated -->
               </div>
             </section>
-            
+
             <!-- Development Story -->
             <section class="app-story">
-              <h3>Development Story</h3>
+              <h3>Engineering Highlights</h3>
               <div class="story-content">
                 <div class="story-item">
-                  <h4><ion-icon name="bulb-outline"></ion-icon> Problem</h4>
+                  <h4><ion-icon name="bulb-outline"></ion-icon> The Challenge</h4>
                   <p data-app-problem></p>
                 </div>
                 <div class="story-item">
-                  <h4><ion-icon name="rocket-outline"></ion-icon> Solution</h4>
+                  <h4><ion-icon name="rocket-outline"></ion-icon> The Solution</h4>
                   <p data-app-solution></p>
                 </div>
                 <div class="story-item">
-                  <h4><ion-icon name="construct-outline"></ion-icon> Challenges & Learnings</h4>
+                  <h4><ion-icon name="construct-outline"></ion-icon> Technical Decisions</h4>
                   <p data-app-challenges></p>
                 </div>
                 <div class="story-item">
-                  <h4><ion-icon name="person-outline"></ion-icon> My Role</h4>
+                  <h4><ion-icon name="person-outline"></ion-icon> Yash's Role</h4>
                   <p data-app-role></p>
                 </div>
               </div>
             </section>
-            
-            <!-- User Reviews (Optional) -->
+
+            <!-- User Reviews -->
             <section class="app-reviews" data-app-reviews-section>
-              <h3>User Reviews</h3>
+              <h3>Client & User Feedback</h3>
               <div class="reviews-container" data-app-reviews>
-                <!-- Reviews will be dynamically added -->
+                <!-- Dynamically populated -->
               </div>
             </section>
-            
+
             <!-- Final CTA -->
             <section class="app-final-cta">
-              <h3>Download & Explore</h3>
+              <h3>Explore Further</h3>
               <div class="final-cta-buttons">
                 <a href="#" class="app-cta playstore large" data-app-playstore-final>
-                  <img src="./assets/icons/playstore.png" alt="Play Store">
-                  <span>Download from Play Store</span>
+                  <img src="./assets/icons/playstore-logo.svg" alt="Play Store" class="cta-svg-icon">
+                  <span>Get on Play Store</span>
                 </a>
                 <a href="#" class="app-cta appstore large" data-app-appstore-final>
-                  <img src="./assets/icons/appstore.png" alt="App Store">
-                  <span>Download from App Store</span>
+                  <img src="./assets/icons/appstore-logo.svg" alt="App Store" class="cta-svg-icon">
+                  <span>Get on App Store</span>
                 </a>
                 <a href="#" class="app-cta prototype large" data-app-prototype-final>
-                  <img src="./assets/icons/origami.png" alt="Prototype">
-                  <span>Try Interactive Demo</span>
+                  <ion-icon name="open-outline" class="cta-ion-icon"></ion-icon>
+                  <span>Explore Interactive Prototype</span>
                 </a>
               </div>
             </section>
           </div>
         </div>
-        
+
       </article>
 
 
-
-
-      <!--
-        - #BLOG
-      -->
-      <!-- 
-      <article class="blog" data-page="blog">
-
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-
-        <section class="blog-posts">
-
-          <ul class="blog-posts-list">
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-1.jpg" alt="Design conferences in 2022" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-
-                  <p class="blog-text">
-                    Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-2.jpg" alt="Best fonts every designer" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Best fonts every designer</h3>
-
-                  <p class="blog-text">
-                    Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-3.jpg" alt="Design digest #80" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #80</h3>
-
-                  <p class="blog-text">
-                    Excepteur sint occaecat cupidatat no proident, quis nostrum exercitationem ullam corporis suscipit.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-4.jpg" alt="UI interactions of the week" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">UI interactions of the week</h3>
-
-                  <p class="blog-text">
-                    Enim ad minim veniam, consectetur adipiscing elit, quis nostrud exercitation ullamco laboris nisi.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-5.jpg" alt="The forgotten art of spacing" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">The forgotten art of spacing</h3>
-
-                  <p class="blog-text">
-                    Maxime placeat, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-            <li class="blog-post-item">
-              <a href="#">
-
-                <figure class="blog-banner-box">
-                  <img src="./assets/images/blog-6.jpg" alt="Design digest #79" loading="lazy">
-                </figure>
-
-                <div class="blog-content">
-
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p>
-
-                    <span class="dot"></span>
-
-                    <time datetime="2022-02-23">Fab 23, 2022</time>
-                  </div>
-
-                  <h3 class="h3 blog-item-title">Design digest #79</h3>
-
-                  <p class="blog-text">
-                    Optio cumque nihil impedit uo minus quod maxime placeat, velit esse cillum.
-                  </p>
-
-                </div>
-
-              </a>
-            </li>
-
-          </ul>
-
-        </section>
-
-      </article> -->
-
-
-
-
-
-      <!--
-        - #CONTACT
-      -->
-
+      <!-- #CONTACT -->
       <article class="contact" data-page="contact">
 
         <header>
           <h2 class="h2 article-title">Contact</h2>
         </header>
 
-        <section class="mapbox" data-mapbox>
+        <!-- Direct Connect Banner -->
+        <section class="contact-cards-section reveal">
+          <div class="contact-quick-cards">
+
+            <a href="https://wa.me/917990714432" target="_blank" class="quick-contact-card whatsapp">
+              <div class="quick-icon">
+                <ion-icon name="logo-whatsapp"></ion-icon>
+              </div>
+              <div class="quick-info">
+                <h4>WhatsApp Direct</h4>
+                <p>+91 7990714432</p>
+                <span class="quick-action">Chat on WhatsApp &rarr;</span>
+              </div>
+            </a>
+
+            <a href="mailto:flutterdeveloper.yash@gmail.com" class="quick-contact-card email">
+              <div class="quick-icon">
+                <ion-icon name="mail-outline"></ion-icon>
+              </div>
+              <div class="quick-info">
+                <h4>Direct Email</h4>
+                <p>flutterdeveloper.yash@gmail.com</p>
+                <span class="quick-action">Send an Email &rarr;</span>
+              </div>
+            </a>
+
+            <a href="https://www.linkedin.com/in/kalkidevs/" target="_blank" class="quick-contact-card linkedin">
+              <div class="quick-icon">
+                <ion-icon name="logo-linkedin"></ion-icon>
+              </div>
+              <div class="quick-info">
+                <h4>LinkedIn Network</h4>
+                <p>kalkidevs</p>
+                <span class="quick-action">Connect on LinkedIn &rarr;</span>
+              </div>
+            </a>
+
+          </div>
+        </section>
+
+        <!-- Map -->
+        <section class="mapbox reveal" data-mapbox>
           <figure>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d119681.74342030844!2d72.83132793060045!3d20.38064340042503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0ce2c01246603%3A0xca6d49eb7baace15!2sVapi%2C%20Gujarat!5e0!3m2!1sen!2sin!4v1726566655288!5m2!1sen!2sin"
-              width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"></iframe>
+              width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade" title="Map of Vapi, Gujarat, India"></iframe>
           </figure>
         </section>
 
-        <section class="contact-form">
+        <!-- Contact Form -->
+        <section class="contact-form reveal">
 
-          <h3 class="h3 form-title">Contact Form</h3>
+          <h3 class="h3 form-title">Send a Message</h3>
+          <p class="form-desc">Have an upcoming mobile app project, design query, or freelancing proposal? Drop me a message below:</p>
 
-          <form action="#" class="form" data-form>
+          <form action="https://formsubmit.co/flutterdeveloper.yash@gmail.com" method="POST" class="form" data-form>
+            <input type="hidden" name="_subject" value="New Portfolio Contact — developeryash.vercel.app">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="box">
+            <input type="hidden" name="_next" value="https://developeryash.vercel.app/">
 
             <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+              <input type="text" name="fullname" class="form-input" placeholder="Your Full Name" required data-form-input>
+              <input type="email" name="email" class="form-input" placeholder="Your Email Address" required data-form-input>
             </div>
 
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+            <textarea name="message" class="form-input" placeholder="Tell me about your project, timeline, and goals..." required data-form-input></textarea>
 
             <button class="form-btn" type="submit" disabled data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
@@ -1412,21 +1474,17 @@
 
   </main>
 
+  <!-- Back to Top Button -->
+  <button class="back-to-top" data-back-top aria-label="Back to top">
+    <ion-icon name="chevron-up-outline"></ion-icon>
+  </button>
 
+  <!-- Custom JS -->
+  <script src="./assets/js/script.js?v=4.0"></script>
 
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./assets/js/script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
 </body>
 

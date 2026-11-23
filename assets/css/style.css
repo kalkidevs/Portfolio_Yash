@@ -1244,39 +1244,11 @@ stats
 }
 
 .project-img::after {
-  content: 'Click to view details';
-  position: absolute;
-  bottom: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 500;
-  opacity: 0;
-  z-index: 2;
-  transition: var(--transition-1);
+  display: none !important;
 }
 
-.project-item:hover .project-img::after {
-  opacity: 1;
-}
-
-.project-item-icon-box ion-icon {
-  --ionicon-stroke-width: 50px;
-}
-
-.project-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition-1);
-}
-
-.project-item>a:hover img {
-  transform: scale(1.1);
+.project-item:hover .project-img img {
+  transform: scale(1.05);
 }
 
 .project-title,
@@ -3206,4 +3178,1609 @@ html {
 @keyframes spin {
   0% { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+
+/*==================================================================*\
+  #UI/UX PRO MAX & FRONTEND UI ENGINEERING ENHANCEMENTS
+\*==================================================================*/
+
+/* 1. Status Pill & Avatar Online Indicator */
+.avatar-box {
+  position: relative;
+}
+
+.avatar-status {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #10b981;
+  border: 2.5px solid var(--eerie-black-1);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.7);
+  animation: pulse-avatar 2s infinite ease-in-out;
+}
+
+@keyframes pulse-avatar {
+  0%, 100% {
+    box-shadow: 0 0 4px rgba(16, 185, 129, 0.5);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 12px rgba(16, 185, 129, 0.9);
+    transform: scale(1.08);
+  }
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  color: #34d399;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 6px #10b981;
+  animation: pulse-dot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.6; transform: scale(0.9); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* 2. Sidebar Contact Items & Copy Feedback */
+.contact-item[data-copy-text] {
+  cursor: pointer;
+  transition: var(--transition-1);
+}
+
+.contact-item[data-copy-text]:hover {
+  transform: translateX(4px);
+}
+
+.contact-item[data-copy-text]:hover .icon-box {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+  box-shadow: 0 0 12px rgba(255, 219, 112, 0.3);
+}
+
+.contact-link {
+  word-break: break-all;
+  font-size: 13px;
+  transition: color var(--transition-1);
+}
+
+.contact-link:hover {
+  color: var(--orange-yellow-crayola) !important;
+}
+
+/* 3. Elevated Stats Cards */
+.stats {
+  margin-bottom: 35px;
+}
+
+.stats-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.stats-item {
+  width: 100%;
+}
+
+.stats-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.45) 0%, rgba(15, 23, 42, 0.65) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 18px;
+  padding: 22px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.stats-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 10% 10%, rgba(255, 219, 112, 0.08), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.stats-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 219, 112, 0.35);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 219, 112, 0.12);
+}
+
+.stats-card:hover::before {
+  opacity: 1;
+}
+
+.stats-icon-wrap {
+  width: 48px;
+  height: 48px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: rgba(255, 219, 112, 0.12);
+  border: 1px solid rgba(255, 219, 112, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--orange-yellow-crayola);
+  font-size: 24px;
+}
+
+.stats-number {
+  font-size: 26px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #ffffff 30%, #ffdb70 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+.stats-text {
+  color: var(--light-gray-70);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* 4. Clients Section & Real Brands Grid */
+.clients {
+  margin-top: 40px;
+  margin-bottom: 25px;
+}
+
+.section-subtitle {
+  color: var(--light-gray-70);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+}
+
+.client-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 18px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.client-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 219, 112, 0.35);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.35), 0 0 16px rgba(255, 219, 112, 0.1);
+}
+
+.client-logo-wrapper {
+  width: 76px;
+  height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.04);
+  padding: 8px;
+  overflow: hidden;
+  transition: var(--transition-1);
+}
+
+.client-card:hover .client-logo-wrapper {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.client-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform var(--transition-1);
+}
+
+.client-card:hover .client-logo {
+  transform: scale(1.08);
+}
+
+/* Future FA Glass logo contrast fix */
+.client-logo-future {
+  filter: brightness(0) invert(1) drop-shadow(0 2px 4px rgba(255, 255, 255, 0.25));
+}
+
+.client-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--light-gray);
+  letter-spacing: 0.3px;
+}
+
+/* 5. Testimonials Meta Elevation */
+.testimonials-meta {
+  margin-bottom: 12px;
+}
+
+.testimonials-subtitle {
+  color: var(--orange-yellow-crayola);
+  font-size: 12px;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+.testimonials-meta time {
+  color: var(--light-gray-70);
+  font-size: 11px;
+  display: block;
+  margin-top: 2px;
+}
+
+/* 6. Technical Expertise Categories in Resume */
+.skill-category-block {
+  margin-bottom: 30px;
+}
+
+.skill-cat-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white-1);
+  font-size: var(--fs-4);
+  font-weight: var(--fw-600);
+  margin-bottom: 14px;
+}
+
+.skill-cat-title ion-icon {
+  color: var(--orange-yellow-crayola);
+  font-size: 18px;
+}
+
+.skill-progress-fill {
+  background: linear-gradient(90deg, #ffdb70 0%, #f59e0b 100%) !important;
+  box-shadow: 0 0 10px rgba(255, 219, 112, 0.3);
+}
+
+/* 7. Project Cards Architecture & Micro-Interactions */
+.project-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.project-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: linear-gradient(145deg, rgba(30, 41, 59, 0.4) 0%, rgba(15, 23, 42, 0.7) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 16px;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 219, 112, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 219, 112, 0.35);
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45), 0 0 24px rgba(255, 219, 112, 0.12);
+}
+
+.project-item:hover::before {
+  opacity: 1;
+}
+
+.project-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  height: auto !important;
+  border-radius: 14px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 16px;
+  background: radial-gradient(ellipse at center, #1e293b, #090d16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-item:hover .project-img img {
+  transform: scale(1.06);
+}
+
+.project-badge-top {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 3;
+}
+
+.project-new-badge {
+  background: linear-gradient(135deg, #10b981, #059669) !important;
+  color: #ffffff !important;
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
+  animation: none !important;
+}
+
+.project-hover-caption {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(8px);
+  color: var(--white-1);
+  border: 1px solid rgba(255, 219, 112, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 4;
+}
+
+.project-item:hover .project-hover-caption {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.project-header-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.project-cat-pill {
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  background: rgba(255, 219, 112, 0.12);
+  color: var(--orange-yellow-crayola);
+  border: 1px solid rgba(255, 219, 112, 0.25);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.project-platform-pill {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--light-gray-70);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.project-title {
+  color: var(--white-1) !important;
+  font-size: 18px;
+  font-weight: 600;
+  margin: 4px 0 8px 0 !important;
+  line-height: 1.3;
+}
+
+.project-desc {
+  color: var(--light-gray) !important;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.project-availability {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: auto;
+}
+
+.badge-icon.svg {
+  width: 14px;
+  height: 14px;
+  fill: #ffffff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.badge-icon-ion {
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* 8. App Detail Modal Overhaul */
+.app-detail-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.app-detail-modal.active {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.app-detail-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 28, 0.8);
+  backdrop-filter: blur(12px);
+  z-index: 1;
+}
+
+.app-detail-content {
+  position: relative;
+  z-index: 2;
+  width: 92%;
+  max-width: 860px;
+  max-height: 88vh;
+  margin: auto;
+  background: linear-gradient(160deg, #161f30 0%, #0d131f 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 219, 112, 0.1);
+  overflow-y: auto;
+  transform: scale(0.95) translateY(15px);
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.app-detail-modal.active .app-detail-content {
+  transform: scale(1) translateY(0);
+}
+
+/* Custom Modal Scrollbar */
+.app-detail-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.app-detail-content::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 10px;
+}
+
+.app-detail-content::-webkit-scrollbar-thumb {
+  background: rgba(255, 219, 112, 0.3);
+  border-radius: 10px;
+}
+
+.app-detail-content::-webkit-scrollbar-thumb:hover {
+  background: var(--orange-yellow-crayola);
+}
+
+.app-detail-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--white-1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 0.25s ease;
+}
+
+.app-detail-close:hover {
+  background: var(--orange-yellow-crayola);
+  color: var(--smoky-black);
+  transform: rotate(90deg);
+}
+
+.app-hero {
+  padding: 35px 30px 25px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.6) 0%, rgba(15, 23, 42, 0.8) 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.app-hero-content {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.app-icon img {
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.app-title {
+  color: var(--white-1) !important;
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  margin-bottom: 6px !important;
+}
+
+.app-tagline {
+  color: var(--orange-yellow-crayola) !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin-bottom: 16px !important;
+}
+
+.cta-svg-icon {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+.cta-ion-icon {
+  font-size: 16px;
+}
+
+/* Readable Tech Stack Tags */
+.tech-tag {
+  background: rgba(255, 219, 112, 0.12) !important;
+  color: #ffdb70 !important;
+  border: 1px solid rgba(255, 219, 112, 0.3) !important;
+  padding: 6px 14px !important;
+  border-radius: 20px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Modal Gallery Container */
+.gallery-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.gallery-main {
+  width: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #090d16;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-height: 460px;
+}
+
+.gallery-main-img {
+  width: 100% !important;
+  max-height: 460px !important;
+  object-fit: contain !important;
+  background: #090d16;
+}
+
+.gallery-thumbnails {
+  display: flex !important;
+  flex-direction: row !important;
+  gap: 12px !important;
+  overflow-x: auto !important;
+  max-height: none !important;
+  padding-bottom: 6px !important;
+}
+
+.gallery-thumb {
+  width: 120px !important;
+  height: 75px !important;
+  flex-shrink: 0 !important;
+  border-radius: 10px !important;
+  border: 2px solid rgba(255, 255, 255, 0.1) !important;
+  overflow: hidden !important;
+  background: #090d16;
+}
+
+.gallery-thumb.active {
+  border-color: var(--orange-yellow-crayola) !important;
+  box-shadow: 0 0 10px rgba(255, 219, 112, 0.4) !important;
+}
+
+.gallery-thumb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+}
+
+/* 9. Contact Quick Action Cards */
+.contact-cards-section {
+  margin-bottom: 30px;
+}
+
+.contact-quick-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.quick-contact-card {
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.45) 0%, rgba(15, 23, 42, 0.7) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 18px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.quick-contact-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange-yellow-crayola);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35), 0 0 16px rgba(255, 219, 112, 0.1);
+}
+
+.quick-icon {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+}
+
+.quick-contact-card.whatsapp .quick-icon {
+  background: rgba(37, 211, 102, 0.15);
+  color: #25d366;
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+
+.quick-contact-card.email .quick-icon {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.3);
+}
+
+.quick-contact-card.linkedin .quick-icon {
+  background: rgba(10, 102, 194, 0.15);
+  color: #0a66c2;
+  border: 1px solid rgba(10, 102, 194, 0.3);
+}
+
+.quick-info h4 {
+  color: var(--white-1);
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.quick-info p {
+  color: var(--light-gray-70);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.quick-action {
+  color: var(--orange-yellow-crayola);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.form-desc {
+  color: var(--light-gray-70);
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+/* 10. Toast Notification Component */
+.toast-notification {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 10000;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  padding: 14px 22px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(16, 185, 129, 0.4);
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateY(100px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.toast-notification.show {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toast-content ion-icon {
+  font-size: 20px;
+}
+
+.btn-spinner {
+  animation: spin 1s linear infinite;
+  display: inline-block;
+  margin-right: 6px;
+}
+
+
+
+/*==================================================================*\
+  #PROJECT SHOWCASE & GALLERY ANIMATION ENHANCEMENTS
+\*==================================================================*/
+
+/* Live Web Platform Badge */
+.badge.live-web {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  color: #ffffff;
+}
+
+.badge.live-web:hover {
+  background: linear-gradient(135deg, #4f46e5, #4338ca);
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Specific Badge Tone Color Variants */
+.project-item[data-app-detail="jyotishgyan"] .project-new-badge {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.45);
+}
+
+.project-item[data-app-detail="dd-one"] .project-new-badge,
+.project-item[data-app-detail="director-app"] .project-new-badge {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8) !important;
+  box-shadow: 0 2px 10px rgba(59, 130, 246, 0.4);
+}
+
+.project-item[data-app-detail="traderdaddy"] .project-new-badge,
+.project-item[data-app-detail="fuelflow"] .project-new-badge {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9) !important;
+  box-shadow: 0 2px 10px rgba(139, 92, 246, 0.4);
+}
+
+.project-item[data-app-detail="wabric"] .project-new-badge,
+.project-item[data-app-detail="gujaratstore"] .project-new-badge {
+  background: linear-gradient(135deg, #ec4899, #be185d) !important;
+  box-shadow: 0 2px 10px rgba(236, 72, 153, 0.4);
+}
+
+/* Modal Screenshot Animation */
+.gallery-main-container img {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  animation: screenshotFadeIn 0.35s ease-in-out;
+}
+
+@keyframes screenshotFadeIn {
+  0% {
+    opacity: 0.6;
+    transform: scale(0.985);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Gallery Thumbnails Styling */
+.gallery-thumbnails {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 8px 4px;
+  margin-top: 14px;
+}
+
+.gallery-thumb {
+  width: 76px;
+  height: 52px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  background: #0f172a;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+.gallery-thumb:hover {
+  opacity: 1;
+  border-color: rgba(255, 219, 112, 0.6);
+  transform: translateY(-2px);
+}
+
+.gallery-thumb.active {
+  opacity: 1;
+  border-color: var(--orange-yellow-crayola);
+  box-shadow: 0 0 12px rgba(255, 219, 112, 0.5);
+  transform: translateY(-2px);
+}
+
+.gallery-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Smooth Category Filter Item Transitions */
+.project-item {
+  animation: projectFadeIn 0.4s ease-out forwards;
+}
+
+@keyframes projectFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/*==================================================================*\
+  #BEAUTIFICATION — SCROLL-REVEAL, ANIMATIONS & MICRO-INTERACTIONS
+\*==================================================================*/
+
+/* ── 1. Scroll-Reveal Base Classes ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for children */
+.stagger-1 { transition-delay: 0.05s; }
+.stagger-2 { transition-delay: 0.1s; }
+.stagger-3 { transition-delay: 0.15s; }
+.stagger-4 { transition-delay: 0.2s; }
+.stagger-5 { transition-delay: 0.25s; }
+.stagger-6 { transition-delay: 0.3s; }
+
+
+/* ── 2. Gradient Text Effects ── */
+.gradient-text {
+  background: linear-gradient(135deg, #ffffff 0%, #ffdb70 50%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.article-title {
+  background: linear-gradient(135deg, #ffffff 30%, #ffdb70 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.article-title::after {
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, #ffdb70, #f59e0b, transparent);
+  border-radius: 3px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+article.active .article-title::after {
+  animation: underline-expand 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes underline-expand {
+  from { width: 0; opacity: 0; }
+  to { width: 50px; opacity: 1; }
+}
+
+
+/* ── 3. Smooth Page Tab Transitions ── */
+article.active {
+  animation: pageSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ── 4. Navbar Active Indicator ── */
+.navbar-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  width: 0;
+  height: 3px;
+  background: var(--orange-yellow-crayola);
+  border-radius: 3px;
+  transform: translateX(-50%);
+  transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.navbar-link.active::after {
+  width: 20px;
+}
+
+.navbar-link:hover::after {
+  width: 14px;
+}
+
+
+/* ── 5. Skill Bar Animations ── */
+.skill-progress-fill {
+  transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.skill-progress-fill.animate {
+  animation: skillGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes skillGlow {
+  from { box-shadow: 0 0 6px rgba(255, 219, 112, 0.3); }
+  to { box-shadow: 0 0 14px rgba(255, 219, 112, 0.6); }
+}
+
+
+/* ── 6. Stats Counter Animation Support ── */
+.stats-number.counting {
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* ── 7. Timeline Animation ── */
+.timeline-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.timeline-item.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* ── 8. Service Card Hover Enhancements ── */
+.service-item {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 219, 112, 0.08);
+  border-color: rgba(255, 219, 112, 0.2);
+}
+
+.service-item:hover .service-icon-box img {
+  transform: scale(1.15) rotate(5deg);
+  transition: transform 0.3s ease;
+}
+
+
+/* ── 9. Social Link Hover Micro-Interactions ── */
+.social-item .social-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.social-item .social-link:hover {
+  color: var(--orange-yellow-crayola) !important;
+  transform: translateY(-4px) scale(1.15);
+  filter: drop-shadow(0 4px 8px rgba(255, 219, 112, 0.3));
+}
+
+
+/* ── 10. Testimonial Card Hover ── */
+.testimonials-item .content-card {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonials-item .content-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 16px rgba(255, 219, 112, 0.08);
+}
+
+
+/* ── 11. Contact Form Focus Glow ── */
+.form-input {
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--orange-yellow-crayola);
+  box-shadow: 0 0 0 3px rgba(255, 219, 112, 0.15), 0 4px 16px rgba(255, 219, 112, 0.1);
+}
+
+.form-btn {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  position: relative;
+}
+
+.form-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 219, 112, 0.2);
+}
+
+.form-btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 219, 112, 0.2);
+  transition: width 0.6s ease, height 0.6s ease;
+  transform: translate(-50%, -50%);
+  z-index: 0;
+}
+
+.form-btn:not(:disabled):active::after {
+  width: 400px;
+  height: 400px;
+}
+
+
+/* ── 12. Client Card Enhanced Interactions ── */
+.client-card {
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.client-card:hover .client-name {
+  color: var(--orange-yellow-crayola);
+}
+
+
+/* ── 13. Filter Button Click Ripple ── */
+.filter-item button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.filter-item button.active {
+  text-shadow: 0 0 10px rgba(255, 219, 112, 0.4);
+}
+
+
+/* ── 14. Staggered Project Cards Entrance ── */
+.project-item.active {
+  animation: projectEnter 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes projectEnter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ── 15. Map Container Polish ── */
+.mapbox {
+  transition: box-shadow 0.4s ease;
+}
+
+.mapbox:hover {
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 219, 112, 0.08);
+}
+
+
+/* ── 16. Quick Contact Card Enhanced ── */
+.quick-contact-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.quick-contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.04), transparent);
+  transition: left 0.5s ease;
+}
+
+.quick-contact-card:hover::before {
+  left: 100%;
+}
+
+
+/* ── 17. Sidebar Name Gradient on Desktop ── */
+@media (min-width: 1250px) {
+  .info-content .name {
+    background: linear-gradient(135deg, #ffffff 40%, #ffdb70 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+
+/* ── 18. Smooth Page Load Fade ── */
+body {
+  animation: bodyFadeIn 0.6s ease-out;
+}
+
+@keyframes bodyFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+
+/* ── 19. Enhanced Scrollbar ── */
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(255, 219, 112, 0.3), rgba(255, 219, 112, 0.1)) !important;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(255, 219, 112, 0.5), rgba(255, 219, 112, 0.2)) !important;
+}
+
+
+/* ── 20. Hover Effects for Icon Boxes ── */
+.icon-box {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.timeline .title-wrapper:hover .icon-box {
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+  transform: rotate(10deg) scale(1.1);
+}
+
+
+/* ── 21. Animated Badge Shine ── */
+.badge.live-web {
+  position: relative;
+  overflow: hidden;
+}
+
+.badge.live-web::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: rotate(25deg);
+  animation: badgeShine 3s infinite;
+}
+
+@keyframes badgeShine {
+  0% { left: -60%; }
+  25% { left: 120%; }
+  100% { left: 120%; }
+}
+
+
+/* ── 22. Stats Icon Bounce on Hover ── */
+.stats-card:hover .stats-icon-wrap {
+  animation: iconBounce 0.5s ease;
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0); }
+  30% { transform: translateY(-6px); }
+  60% { transform: translateY(-3px); }
+}
+
+
+
+/* ══════════════════════════════════════════════
+   UPGRADE ADDITIONS — v4.0
+   ══════════════════════════════════════════════ */
+
+/* ── 23. Typing Animation ── */
+.typing-text {
+  display: inline;
+  min-width: 1px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  color: var(--vegas-gold);
+  font-weight: 300;
+  animation: blink 0.75s step-end infinite;
+  margin-left: 1px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+
+/* ── 24. Resume Download Button ── */
+.resume-download-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  margin-top: 12px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--vegas-gold), hsl(45, 100%, 60%));
+  color: var(--smoky-black);
+  font-family: var(--ff-poppins);
+  font-size: var(--fs-7);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-download-btn ion-icon {
+  font-size: 18px;
+  --ionicon-stroke-width: 48px;
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px hsla(45, 100%, 71%, 0.3);
+  filter: brightness(1.1);
+}
+
+.resume-download-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 20%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: rotate(25deg);
+  animation: resumeShine 3.5s infinite;
+}
+
+@keyframes resumeShine {
+  0% { left: -60%; }
+  20% { left: 120%; }
+  100% { left: 120%; }
+}
+
+
+/* ── 25. Back-to-Top Button ── */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--bg-gradient-yellow-1);
+  color: var(--smoky-black);
+  font-size: 22px;
+  border: none;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 16px hsla(45, 100%, 71%, 0.25);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 28px hsla(45, 100%, 71%, 0.4);
+}
+
+.back-to-top:active {
+  transform: translateY(-1px);
+}
+
+
+/* ── 26. Enhanced Project Card Hover ── */
+.project-item > a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, hsla(45, 100%, 71%, 0.08) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.project-item > a:hover::before {
+  opacity: 1;
+}
+
+
+/* ── 27. Smooth Page Transitions ── */
+article.active {
+  animation: pageSlideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ── 28. Contact Form Enhanced Focus States ── */
+.form-input:focus,
+textarea.form-input:focus {
+  border-color: var(--vegas-gold);
+  box-shadow: 0 0 0 3px hsla(45, 100%, 71%, 0.12);
+  outline: none;
+}
+
+.form-btn:not(:disabled) {
+  background: linear-gradient(135deg, var(--vegas-gold), hsl(45, 100%, 60%));
+  color: var(--smoky-black);
+  font-weight: 600;
+  transition: all 0.35s ease;
+}
+
+.form-btn:not(:disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px hsla(45, 100%, 71%, 0.3);
+}
+
+
+/* ── 29. Tooltip Styles ── */
+[title] {
+  position: relative;
+}
+
+
+/* ── 30. Print Styles ── */
+@media print {
+  .sidebar,
+  .navbar,
+  .back-to-top,
+  .resume-download-btn { display: none; }
+
+  body { background: white; color: black; }
+
+  .article { box-shadow: none; }
+}
+
+
+/* ── 31. Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .typing-cursor { animation: none; opacity: 1; }
+  .back-to-top { transition: none; }
+}
+
+
+/* ── 32. Status Pill (sidebar) ── */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: hsla(120, 60%, 40%, 0.15);
+  border: 1px solid hsla(120, 60%, 40%, 0.3);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: hsl(120, 60%, 50%);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 hsla(120, 60%, 50%, 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 6px hsla(120, 60%, 50%, 0); }
+}
+
+.status-text {
+  font-size: 11px;
+  font-weight: 500;
+  color: hsl(120, 60%, 60%);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+
+/* ── 33. Avatar Status Indicator ── */
+.avatar-box {
+  position: relative;
+}
+
+.avatar-status {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: hsl(120, 60%, 50%);
+  border: 2.5px solid var(--eerie-black-2);
+  animation: statusPulse 2s ease-in-out infinite;
 }

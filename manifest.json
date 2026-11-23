@@ -1,0 +1,22 @@
+{
+  "name": "Yash Kushwaha — Sr. Mobile Application Developer",
+  "short_name": "DevYash",
+  "description": "Portfolio of Yash Kushwaha — Flutter, Android, iOS & Web Developer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/assets/images/my-avatar.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/assets/images/my-avatar.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

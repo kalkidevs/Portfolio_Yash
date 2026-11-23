@@ -124,7 +124,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ### Show some ❤️ and ⭐ the repo if you like this project!
 
-**Designed & Developed by [Yash Kushwaha](https://www.linkedin.com/in/yashkushwaha333/)**  
+**Designed & Developed by [Yash Kushwaha](https://www.linkedin.com/in/kalkidevs/)**  
 Mobile App Developer | UI/UX Enthusiast
 
 </div>
